@@ -39,13 +39,9 @@
     <style>
         /* Estilos personalizados y utilidades de efectos */
         .glass-nav {
-            background: rgba(17, 17, 17, 0.85);
+            background: rgba(17, 17, 17, 0.90);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-        }
-        
-        .cmyk-border-gradient {
-            border-image: linear-gradient(to right, #00AEEF, #EC008C, #FFF200) 1;
         }
 
         .text-gradient-cmyk {
@@ -55,10 +51,9 @@
         }
 
         .cmyk-glow:hover {
-            box-shadow: 0 0 25px rgba(0, 174, 239, 0.3), 0 0 15px rgba(236, 0, 140, 0.3);
+            box-shadow: 0 0 25px rgba(0, 174, 239, 0.25), 0 0 15px rgba(236, 0, 140, 0.25);
         }
 
-        /* Ocultar scrollbars sin perder funcionalidad */
         .no-scrollbar::-webkit-scrollbar {
             display: none;
         }
@@ -67,7 +62,6 @@
             scrollbar-width: none;
         }
 
-        /* Pulsación del botón de WhatsApp */
         @keyframes pulse-ring {
             0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
             70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
@@ -80,1026 +74,538 @@
 </head>
 <body class="bg-cmykBlack text-gray-100 font-sans selection:bg-cmykMagenta selection:text-white relative min-h-screen">
 
-    <!-- BARRA SUPERIOR DE CMYK DECORATIVA -->
+    <!-- SDK DE FACEBOOK PARA FEEDS REALES EN VIVO -->
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
+
+    <!-- BARRA SUPERIOR CMYK -->
     <div class="h-1.5 w-full bg-gradient-to-r from-cmykCyan via-cmykMagenta to-cmykYellow fixed top-0 z-50"></div>
 
     <!-- 1. BANNER SUPERIOR DE INSTALACIONES (CARRUSEL AUTOMÁTICO) -->
-    <section class="mt-1.5 relative w-full bg-black overflow-hidden h-64 md:h-80 lg:h-96 border-b border-gray-800">
+    <section class="mt-1.5 relative w-full bg-black overflow-hidden h-56 sm:h-72 lg:h-80 border-b border-gray-800">
         <div id="installation-carousel" class="w-full h-full relative">
-            <!-- Slide 1 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-100 flex items-center justify-center">
                 <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80" alt="Instalación de Letrero Luminoso LED" class="w-full h-full object-cover brightness-50" onerror="this.src='https://placehold.co/1600x600/111/00AEEF?text=Instalacion+Anuncios+Luminosos'">
                 <div class="absolute inset-0 bg-gradient-to-t from-cmykBlack via-transparent to-black/40"></div>
                 <div class="absolute bottom-6 left-6 right-6 md:left-12 max-w-3xl">
-                    <span class="bg-cmykCyan text-black font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Instalaciones Reales</span>
-                    <h3 class="text-xl md:text-3xl font-display font-bold text-white drop-shadow-md">Montaje de Anuncios Luminosos & Fachadas</h3>
-                    <p class="text-xs md:text-sm text-gray-300 mt-1 hidden sm:block">Trabajos de altura con acabados de alta durabilidad e iluminación LED.</p>
+                    <span class="bg-cmykCyan text-black font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Instalaciones Reales</span>
+                    <h3 class="text-lg sm:text-2xl lg:text-3xl font-display font-bold text-white drop-shadow-md">Montaje de Anuncios Luminosos & Fachadas</h3>
+                    <p class="text-xs text-gray-300 mt-1 hidden sm:block">Trabajos de altura con acabados de alta durabilidad e iluminación LED.</p>
                 </div>
             </div>
-            <!-- Slide 2 -->
             <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0 flex items-center justify-center">
                 <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80" alt="Rotulación Vehicular Comercial" class="w-full h-full object-cover brightness-50" onerror="this.src='https://placehold.co/1600x600/111/EC008C?text=Branding+Vehicular'">
                 <div class="absolute inset-0 bg-gradient-to-t from-cmykBlack via-transparent to-black/40"></div>
                 <div class="absolute bottom-6 left-6 right-6 md:left-12 max-w-3xl">
-                    <span class="bg-cmykMagenta text-white font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Branding Flotillas</span>
-                    <h3 class="text-xl md:text-3xl font-display font-bold text-white drop-shadow-md">Rotulación & Vinil Vehicular de Alta Performance</h3>
-                    <p class="text-xs md:text-sm text-gray-300 mt-1 hidden sm:block">Transformamos tus vehículos en publicidad móvil 24/7.</p>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0 flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=1600&q=80" alt="Impresión Gran Formato e Instalación" class="w-full h-full object-cover brightness-50" onerror="this.src='https://placehold.co/1600x600/111/FFF200?text=Impresion+Gran+Formato'">
-                <div class="absolute inset-0 bg-gradient-to-t from-cmykBlack via-transparent to-black/40"></div>
-                <div class="absolute bottom-6 left-6 right-6 md:left-12 max-w-3xl">
-                    <span class="bg-cmykYellow text-black font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Gran Formato</span>
-                    <h3 class="text-xl md:text-3xl font-display font-bold text-white drop-shadow-md">Impresión de Lonas & Bastidores Gigantes</h3>
-                    <p class="text-xs md:text-sm text-gray-300 mt-1 hidden sm:block">Colocación técnica impecable en eventos y espectaculares.</p>
+                    <span class="bg-cmykMagenta text-white font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Branding Flotillas</span>
+                    <h3 class="text-lg sm:text-2xl lg:text-3xl font-display font-bold text-white drop-shadow-md">Rotulación & Vinil Vehicular Comercial</h3>
+                    <p class="text-xs text-gray-300 mt-1 hidden sm:block">Transformamos tus vehículos en publicidad móvil 24/7.</p>
                 </div>
             </div>
         </div>
 
-        <!-- Botones Banner Slider -->
-        <button id="prevSlide" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykCyan text-white p-3 rounded-full transition-all focus:outline-none">
-            <i class="fas fa-chevron-left text-sm md:text-base"></i>
+        <button id="prevSlide" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykCyan text-white p-2 sm:p-3 rounded-full transition-all focus:outline-none">
+            <i class="fas fa-chevron-left text-xs sm:text-base"></i>
         </button>
-        <button id="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykMagenta text-white p-3 rounded-full transition-all focus:outline-none">
-            <i class="fas fa-chevron-right text-sm md:text-base"></i>
+        <button id="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykMagenta text-white p-2 sm:p-3 rounded-full transition-all focus:outline-none">
+            <i class="fas fa-chevron-right text-xs sm:text-base"></i>
         </button>
     </section>
 
-    <!-- 2. NAVBAR NAVEGACIÓN FIJA -->
-    <nav class="sticky top-0 z-40 glass-nav border-b border-gray-800 transition-all duration-300">
+    <!-- 2. NAVBAR NAVEGACIÓN -->
+    <nav class="sticky top-0 z-40 glass-nav border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
+            <div class="flex items-center justify-between h-16 sm:h-20">
                 <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow p-0.5 shadow-lg group-hover:scale-105 transition-transform">
+                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow p-0.5 shadow-lg group-hover:scale-105 transition-transform">
                         <div class="w-full h-full bg-cmykBlack rounded-[7px] flex items-center justify-center">
-                            <span class="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cmykCyan to-cmykMagenta text-xl">TJ</span>
+                            <span class="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cmykCyan to-cmykMagenta text-lg">TJ</span>
                         </div>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-display font-black text-lg md:text-xl tracking-tight text-white">TJ <span class="text-cmykCyan">DISEÑO</span> & <span class="text-cmykMagenta">PUBLICIDAD</span></span>
-                        <span class="text-[10px] text-gray-400 tracking-widest uppercase -mt-1 font-semibold">Limón Graphics & Media</span>
+                        <span class="font-display font-black text-base sm:text-lg tracking-tight text-white">TJ <span class="text-cmykCyan">DISEÑO</span> & <span class="text-cmykMagenta">PUBLICIDAD</span></span>
+                        <span class="text-[9px] text-gray-400 tracking-widest uppercase -mt-1 font-semibold">Graphics & Media Studio</span>
                     </div>
                 </a>
 
-                <!-- Enlaces Desktop -->
-                <div class="hidden md:flex items-center space-x-8 text-sm font-semibold">
+                <div class="hidden md:flex items-center space-x-6 text-xs sm:text-sm font-semibold">
                     <a href="#inicio" class="text-gray-300 hover:text-cmykCyan transition-colors">Inicio</a>
                     <a href="#servicios" class="text-gray-300 hover:text-cmykMagenta transition-colors">Servicios</a>
-                    <a href="#portafolio" class="text-gray-300 hover:text-cmykYellow transition-colors">Portafolio & Galería</a>
-                    <a href="#feed-social" class="text-gray-300 hover:text-cmykCyan transition-colors">Feed en Vivo</a>
+                    <a href="#portafolio" class="text-gray-300 hover:text-cmykYellow transition-colors">Portafolio</a>
+                    <a href="#feed-lateral" class="text-cmykCyan hover:text-white transition-colors flex items-center gap-1"><i class="fas fa-rss text-xs"></i> Redes en Vivo</a>
                     <a href="#contacto" class="text-gray-300 hover:text-cmykMagenta transition-colors">Contacto</a>
                 </div>
 
-                <!-- Botón Cotizar Navbar -->
                 <div class="hidden md:flex items-center">
-                    <a href="https://wa.me/5216641234567?text=Hola,%20quisiera%20solicitar%20una%20cotizaci%C3%B3n%20para%20un%20proyecto%20de%20dise%C3%B1o/publicidad" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-cmykCyan to-cmykMagenta text-white px-5 py-2.5 rounded-full font-bold text-xs uppercase tracking-wider hover:opacity-90 shadow-md transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
-                        <i class="fab fa-whatsapp text-lg"></i> Cotizar Ahora
+                    <a href="https://wa.me/5216641234567?text=Hola,%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-cmykCyan to-cmykMagenta text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-base"></i> Cotizar
                     </a>
                 </div>
 
-                <!-- Botón Menú Móvil -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2 focus:outline-none" aria-label="Abrir Menú">
-                        <i class="fas fa-bars text-2xl"></i>
+                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden md:hidden bg-cmykBlack border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#inicio" class="mobile-link block py-2 text-base font-semibold text-gray-300 hover:text-cmykCyan">Inicio</a>
-            <a href="#servicios" class="mobile-link block py-2 text-base font-semibold text-gray-300 hover:text-cmykMagenta">Servicios</a>
-            <a href="#portafolio" class="mobile-link block py-2 text-base font-semibold text-gray-300 hover:text-cmykYellow">Portafolio</a>
-            <a href="#feed-social" class="mobile-link block py-2 text-base font-semibold text-gray-300 hover:text-cmykCyan">Social Wall / Feed</a>
-            <a href="#contacto" class="mobile-link block py-2 text-base font-semibold text-gray-300 hover:text-cmykMagenta">Contacto</a>
-            <a href="https://wa.me/5216641234567?text=Hola,%20me%20gustar%C3%ADa%20cotizar%20un%20servicio" target="_blank" class="w-full bg-green-500 text-white py-3 rounded-lg font-bold text-center block mt-4 flex items-center justify-center gap-2">
-                <i class="fab fa-whatsapp text-xl"></i> Cotizar por WhatsApp
-            </a>
+            <a href="#inicio" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykCyan">Inicio</a>
+            <a href="#servicios" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykMagenta">Servicios</a>
+            <a href="#portafolio" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykYellow">Portafolio</a>
+            <a href="#feed-lateral" class="mobile-link block py-2 text-sm font-semibold text-cmykCyan">Redes en Vivo</a>
+            <a href="#contacto" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykMagenta">Contacto</a>
         </div>
     </nav>
 
-    <!-- 3. SECCIÓN HERO -->
-    <section id="inicio" class="relative py-20 lg:py-28 overflow-hidden">
-        <!-- Destellos de fondo CMYK -->
-        <div class="absolute top-1/4 -left-20 w-72 h-72 bg-cmykCyan/15 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="absolute bottom-10 right-0 w-96 h-96 bg-cmykMagenta/15 rounded-full blur-3xl pointer-events-none"></div>
+    <!-- 3. CONTENEDOR PRINCIPAL DOS COLUMNAS (LAYOUT DASHBOARD) -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-900 border border-gray-800 text-xs font-semibold mb-6">
-                    <span class="flex h-2 w-2 rounded-full bg-cmykYellow animate-pulse"></span>
-                    <span class="text-gray-300">Diseño Gráfico • Gran Formato • Anuncios Luminosos</span>
-                </div>
+            <!-- COLUMNA IZQUIERDA PRINCIPAL (CONTENIDO PORTAFOLIO - 65% / 8 Cols en LG) -->
+            <main class="lg:col-span-8 space-y-16">
 
-                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-display font-black tracking-tight leading-tight mb-6">
-                    Hacemos que tu marca <br>
-                    <span class="text-gradient-cmyk">Destaque e Impacte</span>
-                </h1>
-
-                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-                    Especialistas en <strong>diseño publicitario, impresión de alta calidad e instalación profesional de anuncios</strong>. De la idea digital al montaje en tu negocio.
-                </p>
-
-                <!-- Botones CTA Hero -->
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://wa.me/5216641234567?text=Hola!%20Quiero%20cotizar%20un%20trabajo%20de%20dise%C3%B1o%20o%20publicidad." target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-full font-bold text-base transition-all transform hover:-translate-y-1 shadow-lg shadow-green-500/25 flex items-center justify-center gap-3">
-                        <i class="fab fa-whatsapp text-2xl"></i> Cotizar por WhatsApp
-                    </a>
-                    <a href="#portafolio" class="w-full sm:w-auto bg-darkCard hover:bg-gray-800 border border-gray-700 text-white px-8 py-4 rounded-full font-bold text-base transition-all flex items-center justify-center gap-2">
-                        Ver Trabajos <i class="fas fa-arrow-right text-cmykCyan"></i>
-                    </a>
-                </div>
-
-                <!-- Métricas Rápidas -->
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 pt-10 border-t border-gray-800/80 max-w-4xl mx-auto text-center">
-                    <div>
-                        <span class="block text-3xl font-display font-black text-cmykCyan">+8 Años</span>
-                        <span class="text-xs text-gray-400 font-medium">De Experiencia</span>
+                <!-- HERO RESUMEN -->
+                <section id="inicio" class="bg-darkCard/60 rounded-3xl p-6 sm:p-10 border border-gray-800 relative overflow-hidden">
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 border border-gray-800 text-[11px] font-semibold mb-4">
+                        <span class="flex h-2 w-2 rounded-full bg-cmykYellow animate-pulse"></span>
+                        <span class="text-gray-300">Diseño Gráfico • Gran Formato • Anuncios Luminosos</span>
                     </div>
-                    <div>
-                        <span class="block text-3xl font-display font-black text-cmykMagenta">100%</span>
-                        <span class="text-xs text-gray-400 font-medium">Garantía de Calidad</span>
-                    </div>
-                    <div>
-                        <span class="block text-3xl font-display font-black text-cmykYellow">+500</span>
-                        <span class="text-xs text-gray-400 font-medium">Instalaciones Exitosas</span>
-                    </div>
-                    <div>
-                        <span class="block text-3xl font-display font-black text-white">Express</span>
-                        <span class="text-xs text-gray-400 font-medium">Entregas Rápidas</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 4. SECCIÓN DE SERVICIOS OFRECIDOS -->
-    <section id="servicios" class="py-20 bg-darkCard/50 border-y border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-xs uppercase font-extrabold tracking-widest text-cmykCyan mb-2">Lo Que Hacemos Por Ti</h2>
-                <h3 class="text-3xl md:text-5xl font-display font-black text-white">Nuestros Servicios Profesionales</h3>
-                <p class="text-gray-400 mt-4">Soluciones integrales desde el concepto visual hasta la instalación final en tu establecimiento.</p>
-            </div>
+                    <h1 class="text-3xl sm:text-5xl font-display font-black tracking-tight leading-tight mb-4">
+                        Impulsamos la imagen de tu negocio con <br>
+                        <span class="text-gradient-cmyk">Diseño e Impresión Real</span>
+                    </h1>
 
-            <!-- Grilla Bento de Servicios -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <p class="text-xs sm:text-sm text-gray-400 mb-8 leading-relaxed max-w-2xl">
+                        Fabricación, diseño de logotipos, branding vehicular e instalación de letreros luminosos con calidad profesional.
+                    </p>
+
+                    <div class="flex flex-wrap items-center gap-3">
+                        <a href="https://wa.me/5216641234567?text=Hola,%20deseo%20cotizar" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-xl font-bold text-xs transition-all flex items-center gap-2 shadow-lg shadow-green-500/20">
+                            <i class="fab fa-whatsapp text-xl"></i> Cotizar WhatsApp
+                        </a>
+                        <a href="#portafolio" class="bg-cmykBlack hover:bg-gray-900 border border-gray-700 text-white px-6 py-3 rounded-xl font-bold text-xs transition-all flex items-center gap-2">
+                            Ver Galería <i class="fas fa-arrow-down text-cmykCyan"></i>
+                        </a>
+                    </div>
+                </section>
+
+                <!-- SECCIÓN SERVICIOS -->
+                <section id="servicios">
+                    <div class="mb-6">
+                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-cmykCyan block mb-1">Lo que ofrecemos</span>
+                        <h2 class="text-2xl sm:text-3xl font-display font-black text-white">Servicios de Publicidad Comercial</h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div class="bg-darkCard p-6 rounded-2xl border border-gray-800 hover:border-cmykCyan transition-all cmyk-glow group">
+                            <div class="w-12 h-12 rounded-xl bg-cmykCyan/10 text-cmykCyan flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-pen-nib"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-white mb-2">Diseño Gráfico & Branding</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Creación de logotipos, manuales de marca, menús, flyers e imagen corporativa completa.</p>
+                        </div>
+
+                        <div class="bg-darkCard p-6 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all cmyk-glow group">
+                            <div class="w-12 h-12 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-print"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-white mb-2">Impresión Gran Formato</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Impresión en lona vinílica, microperforado, vinil mate/brillante y bastidores publicitarios.</p>
+                        </div>
+
+                        <div class="bg-darkCard p-6 rounded-2xl border border-gray-800 hover:border-cmykYellow transition-all cmyk-glow group">
+                            <div class="w-12 h-12 rounded-xl bg-cmykYellow/10 text-cmykYellow flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-white mb-2">Letreros e Instalaciones</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Cajas de luz LED, letras 3D formadas en acrílico o aluminio y montajes de altura.</p>
+                        </div>
+
+                        <div class="bg-darkCard p-6 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all cmyk-glow group">
+                            <div class="w-12 h-12 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-truck-monster"></i>
+                            </div>
+                            <h3 class="text-base font-bold text-white mb-2">Branding Vehicular</h3>
+                            <p class="text-xs text-gray-400 leading-relaxed">Rotulación parcial o wrap completo para vehículos comerciales y flotillas.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- GALERÍA FILTRABLE -->
+                <section id="portafolio">
+                    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-4">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-cmykMagenta block mb-1">Muestrario de Proyectos</span>
+                            <h2 class="text-2xl sm:text-3xl font-display font-black text-white">Galería de Trabajos</h2>
+                        </div>
+                        <div class="flex flex-wrap gap-1.5 no-scrollbar overflow-x-auto">
+                            <button class="filter-btn active-filter px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-cmykCyan text-black" data-filter="all">Todos</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white" data-filter="instalacion">Instalaciones</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white" data-filter="diseno">Diseño</button>
+                            <button class="filter-btn px-3 py-1.5 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white" data-filter="vehicular">Vehicular</button>
+                        </div>
+                    </div>
+
+                    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <!-- Item 1 -->
+                        <div class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800" 
+                             onclick="openModal('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80', 'Caja de Luz LED Exterior', 'Instalación real de anuncio luminoso con estructura de alta durabilidad.')">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Anuncio Luminoso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Anuncio+Luminoso'">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <div class="absolute bottom-0 p-4">
+                                <span class="text-[9px] font-bold text-cmykCyan uppercase tracking-widest bg-cmykCyan/20 px-2 py-0.5 rounded">Instalación Real</span>
+                                <h4 class="text-sm font-bold text-white mt-1">Caja de Luz LED Exterior</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 2 -->
+                        <div class="gallery-item category-diseno cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
+                             onclick="openModal('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', 'Branding & Identidad Corporativa', 'Diseño vectorial e identidad de marca completa.')">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Diseño de Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/EC008C?text=Diseño+Identidad+Marca'">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <div class="absolute bottom-0 p-4">
+                                <span class="text-[9px] font-bold text-cmykMagenta uppercase tracking-widest bg-cmykMagenta/20 px-2 py-0.5 rounded">Diseño Gráfico</span>
+                                <h4 class="text-sm font-bold text-white mt-1">Identidad Corporativa Completa</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 3 -->
+                        <div class="gallery-item category-vehicular cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
+                             onclick="openModal('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', 'Rotulación de Flotilla Comercial', 'Aplicación de vinil de alta resistencia para vehículos de trabajo.')">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Rotulación Vehicular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/FFF200?text=Rotulacion+Vehicular'">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <div class="absolute bottom-0 p-4">
+                                <span class="text-[9px] font-bold text-cmykYellow uppercase tracking-widest bg-cmykYellow/20 text-cmykYellow px-2 py-0.5 rounded">Rotulación</span>
+                                <h4 class="text-sm font-bold text-white mt-1">Rotulado Vehicular Comercial</h4>
+                            </div>
+                        </div>
+
+                        <!-- Item 4 -->
+                        <div class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
+                             onclick="openModal('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80', 'Bastidor Gigante Perimetral', 'Colocación e instalación técnica de lona publicitaria tensada.')">
+                            <div class="h-56 overflow-hidden">
+                                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Montaje de Lona" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Montaje+Lona'">
+                            </div>
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                            <div class="absolute bottom-0 p-4">
+                                <span class="text-[9px] font-bold text-cmykCyan uppercase tracking-widest bg-cmykCyan/20 px-2 py-0.5 rounded">Instalación Real</span>
+                                <h4 class="text-sm font-bold text-white mt-1">Bastidor Perimetral Gigante</h4>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+
+
+            <!-- COLUMNA DERECHA / BARRA LATERAL STICKY (FEED DE REDES SOCIALES OFICIALES EN VIVO - 35% / 4 Cols en LG) -->
+            <aside id="feed-lateral" class="lg:col-span-4 sticky top-24 space-y-6">
                 
-                <!-- Servicio 1 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykCyan transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykCyan/10 text-cmykCyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-pen-nib"></i>
+                <div class="bg-darkCard rounded-3xl p-5 border border-gray-800 shadow-xl">
+                    <!-- Header Sidebar Feed -->
+                    <div class="flex items-center justify-between pb-4 border-b border-gray-800 mb-4">
+                        <div>
+                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-cmykCyan block">Muro Oficial</span>
+                            <h3 class="text-lg font-display font-bold text-white flex items-center gap-2">
+                                Feed en Vivo <i class="fas fa-rss text-cmykMagenta text-xs animate-pulse"></i>
+                            </h3>
+                        </div>
+                        <span class="bg-red-500/10 text-red-400 text-[10px] font-bold px-2 py-1 rounded-full flex items-center gap-1">
+                            <span class="w-1.5 h-1.5 rounded-full bg-red-500"></span> LIVE
+                        </span>
                     </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Diseño Gráfico & Branding</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Creación de logotipos impactantes, identidad corporativa, menús para restaurantes, flyers y publicidad digital para redes.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Logotipos vectoriales</li>
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Manual de identidad</li>
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Arte para redes sociales</li>
-                    </ul>
+
+                    <!-- Pestañas Redes Sociales (Facebook, Instagram, TikTok) -->
+                    <div class="flex bg-cmykBlack p-1 rounded-xl gap-1 mb-4">
+                        <button onclick="switchTab('fb')" id="tab-fb" class="social-tab-btn flex-1 py-1.5 text-xs font-bold rounded-lg transition-all bg-cmykCyan text-black flex items-center justify-center gap-1">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                        <button onclick="switchTab('ig')" id="tab-ig" class="social-tab-btn flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center justify-center gap-1">
+                            <i class="fab fa-instagram"></i> Insta
+                        </button>
+                        <button onclick="switchTab('tt')" id="tab-tt" class="social-tab-btn flex-1 py-1.5 text-xs font-bold rounded-lg transition-all text-gray-400 hover:text-white flex items-center justify-center gap-1">
+                            <i class="fab fa-tiktok"></i> TikTok
+                        </button>
+                    </div>
+
+                    <!-- CONTENIDO DE PESTAÑAS FEED SOCIAL REAL -->
+                    
+                    <!-- 1. FEED FACEBOOK OFICIAL (SDK / IFRAME PLUGIN DE PÁGINA) -->
+                    <div id="feed-content-fb" class="social-content block space-y-4">
+                        <p class="text-[11px] text-gray-400">Publicaciones reales directamente desde nuestra página de Facebook:</p>
+                        
+                        <!-- EMBED OFICIAL DE FACEBOOK PAGE PLUGIN -->
+                        <!-- INSTRUCCIONES: Reemplaza href=https://www.facebook.com/facebook por la URL real de tu página de Facebook -->
+                        <div class="w-full overflow-hidden rounded-xl bg-black border border-gray-800 flex justify-center">
+                            <div class="fb-page" 
+                                 data-href="https://www.facebook.com/facebook" 
+                                 data-tabs="timeline" 
+                                 data-width="340" 
+                                 data-height="450" 
+                                 data-small-header="true" 
+                                 data-adapt-container-width="true" 
+                                 data-hide-cover="false" 
+                                 data-show-facepile="false">
+                                <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
+                                    <a href="https://www.facebook.com/facebook">Cargando Facebook Feed...</a>
+                                </blockquote>
+                            </div>
+                        </div>
+
+                        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-full bg-cmykCyan/10 text-cmykCyan hover:bg-cmykCyan hover:text-black py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
+                            <i class="fab fa-facebook"></i> Ir a Facebook Oficial
+                        </a>
+                    </div>
+
+                    <!-- 2. FEED INSTAGRAM OFICIAL -->
+                    <div id="feed-content-ig" class="social-content hidden space-y-4">
+                        <p class="text-[11px] text-gray-400">Últimas fotos e historias publicadas en nuestro perfil:</p>
+                        
+                        <!-- WIDGET EMBED INSTAGRAM / PREVIEW INTERACTIVA -->
+                        <div class="space-y-3 max-h-[450px] overflow-y-auto pr-1 no-scrollbar">
+                            <div class="bg-cmykBlack rounded-xl border border-gray-800 overflow-hidden">
+                                <div class="p-3 flex items-center justify-between border-b border-gray-900">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-cmykYellow via-cmykMagenta to-cmykCyan p-0.5">
+                                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-[9px] font-bold text-white">TJ</div>
+                                        </div>
+                                        <span class="text-xs font-bold text-white">tj_diseno_publicidad</span>
+                                    </div>
+                                    <i class="fab fa-instagram text-cmykMagenta"></i>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/111/EC008C?text=Instagram+Post'">
+                                <div class="p-3">
+                                    <p class="text-xs text-gray-300">¡Instalación LED de hoy terminada! 🚀 #DisenoGrafico #Publicidad</p>
+                                </div>
+                            </div>
+
+                            <div class="bg-cmykBlack rounded-xl border border-gray-800 overflow-hidden">
+                                <div class="p-3 flex items-center justify-between border-b border-gray-900">
+                                    <div class="flex items-center space-x-2">
+                                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-cmykYellow via-cmykMagenta to-cmykCyan p-0.5">
+                                            <div class="w-full h-full bg-black rounded-full flex items-center justify-center text-[9px] font-bold text-white">TJ</div>
+                                        </div>
+                                        <span class="text-xs font-bold text-white">tj_diseno_publicidad</span>
+                                    </div>
+                                    <i class="fab fa-instagram text-cmykMagenta"></i>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" class="w-full h-48 object-cover" onerror="this.src='https://placehold.co/600x400/111/00AEEF?text=Instagram+Branding'">
+                                <div class="p-3">
+                                    <p class="text-xs text-gray-300">Diseño de tarjetas corporativas con barniz UV ✨</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-full bg-cmykMagenta/10 text-cmykMagenta hover:bg-cmykMagenta hover:text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
+                            <i class="fab fa-instagram"></i> Síguenos en Instagram
+                        </a>
+                    </div>
+
+                    <!-- 3. FEED TIKTOK OFICIAL -->
+                    <div id="feed-content-tt" class="social-content hidden space-y-4">
+                        <p class="text-[11px] text-gray-400">Videos del proceso de fabricación e instalación:</p>
+                        
+                        <!-- PREVIEW EMBED TIKTOK -->
+                        <div class="bg-cmykBlack rounded-xl border border-gray-800 overflow-hidden p-3 relative group">
+                            <img src="https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=600&q=80" class="w-full h-52 object-cover rounded-lg" onerror="this.src='https://placehold.co/600x400/111/FFF200?text=TikTok+Video'">
+                            <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+                                <div class="w-10 h-10 rounded-full bg-cmykYellow text-black flex items-center justify-center text-lg shadow-lg group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-play ml-0.5"></i>
+                                </div>
+                            </div>
+                            <div class="mt-3">
+                                <span class="text-[10px] font-bold text-cmykYellow">@tj_diseno_oficial</span>
+                                <p class="text-xs text-gray-300 mt-0.5">Proceso de impresión de 50 metros en plotter gran formato ⚡</p>
+                            </div>
+                        </div>
+
+                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-full bg-cmykYellow/10 text-cmykYellow hover:bg-cmykYellow hover:text-black py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
+                            <i class="fab fa-tiktok"></i> Ver Videos en TikTok
+                        </a>
+                    </div>
+
                 </div>
 
-                <!-- Servicio 2 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-print"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Impresión Gran Formato</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Impresión en lona vinílica, microperforado para ventanas, vinil adhesivo mate/brillante y lienzos canvas de alta definición.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Lonas publicitarias</li>
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Vinil decorativo y comercial</li>
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Microperforado para cristales</li>
-                    </ul>
+                <!-- BANNER SECUNDARIO DIRECTO A WHATSAPP -->
+                <div class="bg-gradient-to-tr from-green-950 to-darkCard border border-green-800/60 rounded-3xl p-5 text-center">
+                    <i class="fab fa-whatsapp text-3xl text-green-400 mb-2"></i>
+                    <h4 class="text-sm font-bold text-white">¿Atención Personalizada?</h4>
+                    <p class="text-[11px] text-gray-400 mt-1 mb-4">Envíanos la foto o medida de tu espacio y te cotizamos al momento.</p>
+                    <a href="https://wa.me/5216641234567?text=Hola,%20me%20gustar%C3%ADa%20cotizar" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-all shadow-md">
+                        Iniciar Chat Directo
+                    </a>
                 </div>
 
-                <!-- Servicio 3 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykYellow transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykYellow/10 text-cmykYellow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-store"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Letreros e Instalaciones</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Fabricación y montaje en sitio de letreros luminosos en acrílico, letras 3D formadas, bastidores y remodelación de fachadas.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Anuncios luminosos LED</li>
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Letras 3D (Acrílico/Aluminio)</li>
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Montajes en altura</li>
-                    </ul>
-                </div>
-
-                <!-- Servicio 4 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-truck-monster"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Branding Vehicular</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Rotulación parcial o total para autos de empresa, camionetas de reparto y flotillas con vinil fundido de larga duración.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Rotulación en Vinil de Corte</li>
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Wrap Completo Impreso</li>
-                        <li><i class="fas fa-check text-cmykMagenta mr-2"></i>Publicidad Móvil</li>
-                    </ul>
-                </div>
-
-                <!-- Servicio 5 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykYellow transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykYellow/10 text-cmykYellow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-id-card"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Papelería Comercial</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Tarjetas de presentación con acabados especiales (Barniz UV, Soft Touch), folletos, notas de venta y banners desplegables.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Tarjetas de presentación</li>
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Volantes y Trípticos</li>
-                        <li><i class="fas fa-check text-cmykYellow mr-2"></i>Roll Up Banners</li>
-                    </ul>
-                </div>
-
-                <!-- Servicio 6 -->
-                <div class="bg-cmykBlack p-8 rounded-2xl border border-gray-800 hover:border-cmykCyan transition-all duration-300 cmyk-glow group">
-                    <div class="w-14 h-14 rounded-xl bg-cmykCyan/10 text-cmykCyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <h4 class="text-xl font-bold text-white mb-3">Artículos Promocionales</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-4">Personalización de souvenirs y promocionales: playeras, gorras, tazas, plumas y uniformes corporativos.</p>
-                    <ul class="text-xs text-gray-500 space-y-2 font-medium">
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Serigrafía y DTF</li>
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Sublimación de productos</li>
-                        <li><i class="fas fa-check text-cmykCyan mr-2"></i>Regalos empresariales</li>
-                    </ul>
-                </div>
-
-            </div>
+            </aside>
         </div>
-    </section>
+    </div>
 
-    <!-- 5. GALERÍA / PORTAFOLIO FILTRABLE Y MODAL -->
-    <section id="portafolio" class="py-20">
+    <!-- 4. FOOTER -->
+    <footer id="contacto" class="bg-black pt-16 pb-10 border-t border-gray-800 mt-16">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
                 <div>
-                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-cmykMagenta mb-2">Galería de Trabajos</h2>
-                    <h3 class="text-3xl md:text-5xl font-display font-black text-white">Nuestra Galería de Proyectos</h3>
-                </div>
-                
-                <!-- Botones de Filtro -->
-                <div class="flex flex-wrap gap-2 mt-6 md:mt-0 no-scrollbar overflow-x-auto pb-2">
-                    <button class="filter-btn active-filter px-4 py-2 rounded-full text-xs font-bold transition-all bg-cmykCyan text-black" data-filter="all">Todos</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-filter="instalacion">Instalaciones Reales</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-filter="diseno">Diseños Digitales</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-filter="vehicular">Rotulación Vehicular</button>
-                    <button class="filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-filter="impresion">Gran Formato</button>
-                </div>
-            </div>
-
-            <!-- Grilla de Trabajos -->
-            <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-                <!-- Item 1: Instalación -->
-                <div class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800" 
-                     onclick="openModal('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80', 'Instalación de Caja de Luz LED', 'Montaje exterior de anuncio luminoso de alta visibilidad para negocio comercial.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Instalación Anuncio Luminoso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Anuncio+Luminoso'">
+                    <div class="flex items-center space-x-2 mb-3">
+                        <span class="font-display font-black text-lg text-white">TJ DISEÑO & PUBLICIDAD</span>
                     </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykCyan uppercase tracking-widest bg-cmykCyan/20 px-2.5 py-1 rounded-md">Instalación Real</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Caja de Luz LED Exterior</h4>
-                        <p class="text-xs text-gray-300 mt-1">Fachada comercial con estructuras reforzadas.</p>
-                    </div>
-                </div>
-
-                <!-- Item 2: Diseño -->
-                <div class="gallery-item category-diseno cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                     onclick="openModal('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', 'Branding & Identidad para Marca', 'Creación de concepto gráfico completo, paleta de colores y papelería digital.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Diseño de Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/EC008C?text=Diseño+Identidad+Marca'">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykMagenta uppercase tracking-widest bg-cmykMagenta/20 px-2.5 py-1 rounded-md">Diseño Gráfico</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Identidad Corporativa Completa</h4>
-                        <p class="text-xs text-gray-300 mt-1">Diseño de marca moderno e innovador.</p>
-                    </div>
-                </div>
-
-                <!-- Item 3: Vehicular -->
-                <div class="gallery-item category-vehicular cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                     onclick="openModal('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', 'Rotulación de Flotilla Comercial', 'Vinil de alta adherencia aplicado a vehículos de carga para difusión de la marca.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Rotulación Vehicular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/FFF200?text=Rotulacion+Vehicular'">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykYellow uppercase tracking-widest bg-cmykYellow/20 text-cmykYellow px-2.5 py-1 rounded-md">Rotulación</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Rotulado de Camioneta de Reparto</h4>
-                        <p class="text-xs text-gray-300 mt-1">Vinil impreso laminado anti-rayaduras.</p>
-                    </div>
-                </div>
-
-                <!-- Item 4: Instalación -->
-                <div id="instalaciones" class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                     onclick="openModal('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80', 'Montaje de Bastidor Gran Formato', 'Instalación de lona sobre estructura metálica con tensado profesional.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Montaje Lona Gran Formato" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Montaje+de+Lonas'">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykCyan uppercase tracking-widest bg-cmykCyan/20 px-2.5 py-1 rounded-md">Instalación Real</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Bastidor Perimetral de 6x3m</h4>
-                        <p class="text-xs text-gray-300 mt-1">Colocación con equipo de seguridad especializado.</p>
-                    </div>
-                </div>
-
-                <!-- Item 5: Impresion -->
-                <div class="gallery-item category-impresion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                     onclick="openModal('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=1200&q=80', 'Vinil Microperforado en Ventanales', 'Impresión e instalación de vinil microperforado para privacidad e imagen corporativa.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" alt="Vinil Microperforado" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/EC008C?text=Vinil+Microperforado'">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykMagenta uppercase tracking-widest bg-cmykMagenta/20 px-2.5 py-1 rounded-md">Gran Formato</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Vinil Microperforado para Fachada</h4>
-                        <p class="text-xs text-gray-300 mt-1">Permite el paso de luz manteniendo privacidad.</p>
-                    </div>
-                </div>
-
-                <!-- Item 6: Diseño -->
-                <div class="gallery-item category-diseno cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                     onclick="openModal('https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80', 'Diseño de Carteles & Banners Publicitarios', 'Creación de arte publicitario para promociones de temporada.')">
-                    <div class="aspect-w-4 aspect-h-3 h-64 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Diseño Publicitario" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/FFF200?text=Diseno+Publicitario'">
-                    </div>
-                    <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                    <div class="absolute bottom-0 p-6">
-                        <span class="text-[10px] font-bold text-cmykYellow uppercase tracking-widest bg-cmykYellow/20 text-cmykYellow px-2.5 py-1 rounded-md">Diseño Gráfico</span>
-                        <h4 class="text-lg font-bold text-white mt-2">Campaña de Publicidad Impresa</h4>
-                        <p class="text-xs text-gray-300 mt-1">Diseño de alta fidelidad de color CMYK.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- 6. SECCIÓN SOCIAL WALL / FEED EN VIVO DE REDES SOCIALES -->
-    <section id="feed-social" class="py-20 bg-darkCard/40 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-                <div>
-                    <h2 class="text-xs uppercase font-extrabold tracking-widest text-cmykCyan mb-2">Social Wall / Muro en Vivo</h2>
-                    <h3 class="text-3xl md:text-5xl font-display font-black text-white">Nuestra Red en Tiempo Real</h3>
-                    <p class="text-gray-400 mt-2 text-sm">Explora las últimas publicaciones, instalaciones y detrás de escenas de nuestras redes oficiales.</p>
-                </div>
-
-                <!-- Filtros del Feed Social -->
-                <div class="flex flex-wrap gap-2 mt-6 md:mt-0">
-                    <button class="social-filter-btn active-social-filter px-4 py-2 rounded-full text-xs font-bold transition-all bg-cmykCyan text-black" data-social="all">
-                        <i class="fas fa-layer-group mr-1"></i> Todas
-                    </button>
-                    <button class="social-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-social="instagram">
-                        <i class="fab fa-instagram text-cmykMagenta mr-1"></i> Instagram
-                    </button>
-                    <button class="social-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-social="facebook">
-                        <i class="fab fa-facebook-f text-cmykCyan mr-1"></i> Facebook
-                    </button>
-                    <button class="social-filter-btn px-4 py-2 rounded-full text-xs font-bold transition-all bg-darkCard text-gray-300 hover:text-white hover:bg-gray-800" data-social="tiktok">
-                        <i class="fab fa-tiktok text-cmykYellow mr-1"></i> TikTok
-                    </button>
-                </div>
-            </div>
-
-            <!-- Grilla Estilo Tarjetas de Redes Sociales -->
-            <div id="socialFeedGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                
-                <!-- Post 1: Instagram -->
-                <div class="social-post social-instagram bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykMagenta transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <!-- Header del Post -->
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cmykYellow via-cmykMagenta to-cmykCyan p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">tj_diseno_publicidad <i class="fas fa-check-circle text-cmykCyan text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">Instagram • Hace 2 horas</span>
-                                </div>
-                            </div>
-                            <a href="https://instagram.com" target="_blank" rel="noopener" class="text-cmykMagenta hover:scale-110 transition-transform">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                        </div>
-                        <!-- Imagen del Post -->
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80', 'Post de Instagram: Letrero LED', 'Detrás de cámaras en el proceso de instalación de caja luminosa.')">
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Post Instagram" class="w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-2">
-                                <i class="fas fa-external-link-alt"></i> Ver Publicación
-                            </div>
-                        </div>
-                        <!-- Descripción -->
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                ✨ ¡Finalizamos con éxito la instalación de esta hermosa caja de luz LED! Aumenta las ventas de tu local con avisos de alta potencia visual. 🚀 
-                            </p>
-                            <span class="text-[11px] text-cmykCyan mt-2 block font-semibold">#DisenoGrafico #AnunciosLuminosos #PublicidadTJ</span>
-                        </div>
-                    </div>
-                    <!-- Interacciones y Botón Ir a Red -->
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykMagenta transition-colors flex items-center gap-1">
-                                <i class="far fa-heart"></i> <span>248</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="far fa-comment"></i> 32</span>
-                        </div>
-                        <a href="https://instagram.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykMagenta/10 text-cmykMagenta hover:bg-cmykMagenta hover:text-white px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en Instagram <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Post 2: Facebook -->
-                <div class="social-post social-facebook bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykCyan transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <!-- Header del Post -->
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-cmykCyan p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">TJ Diseño & Publicidad <i class="fas fa-check-circle text-cmykCyan text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">Facebook • Ayer a las 14:30</span>
-                                </div>
-                            </div>
-                            <a href="https://facebook.com" target="_blank" rel="noopener" class="text-cmykCyan hover:scale-110 transition-transform">
-                                <i class="fab fa-facebook-f text-xl"></i>
-                            </a>
-                        </div>
-                        <!-- Imagen del Post -->
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', 'Post de Facebook: Rotulación Vehicular', 'Rotulación en vinil de corte para cliente corporativo.')">
-                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Post Facebook" class="w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-bold gap-2">
-                                <i class="fas fa-external-link-alt"></i> Ver Publicación
-                            </div>
-                        </div>
-                        <!-- Descripción -->
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                🚐 ¿Buscas que tu empresa esté visible por toda la ciudad? Mira el trabajo de rotulación en flotilla comercial entregado el día de hoy. ¡Cotiza tu auto con nosotros!
-                            </p>
-                            <span class="text-[11px] text-cmykCyan mt-2 block font-semibold">#BrandingVehicular #VinilDeCorte #PublicidadMovil</span>
-                        </div>
-                    </div>
-                    <!-- Interacciones y Botón Ir a Red -->
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykCyan transition-colors flex items-center gap-1">
-                                <i class="far fa-thumbs-up"></i> <span>189</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="far fa-comment-alt"></i> 15</span>
-                        </div>
-                        <a href="https://facebook.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykCyan/10 text-cmykCyan hover:bg-cmykCyan hover:text-black px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en Facebook <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Post 3: TikTok -->
-                <div class="social-post social-tiktok bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykYellow transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <!-- Header del Post -->
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-cmykYellow p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">@tj_diseno_oficial <i class="fas fa-check-circle text-cmykYellow text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">TikTok • Hace 3 días</span>
-                                </div>
-                            </div>
-                            <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-cmykYellow hover:scale-110 transition-transform">
-                                <i class="fab fa-tiktok text-xl"></i>
-                            </a>
-                        </div>
-                        <!-- Imagen / Miniatura de TikTok -->
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=1200&q=80', 'Reel TikTok: Proceso de Impresión Gran Formato', 'Video corto mostrando la velocidad y resolución de nuestro plotter de impresión.')">
-                            <img src="https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=800&q=80" alt="Video TikTok" class="w-full h-64 object-cover">
-                            <!-- Overlay Ícono Play -->
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                                <div class="w-12 h-12 rounded-full bg-cmykYellow/90 text-black flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-play ml-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Descripción -->
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                🎬 ¡Así imprimimos 50 metros de lona en minutos! La mejor resolución CMYK del mercado para tus banners. ⚡
-                            </p>
-                            <span class="text-[11px] text-cmykYellow mt-2 block font-semibold">#Imprenta #GranFormato #BehindTheScenes</span>
-                        </div>
-                    </div>
-                    <!-- Interacciones y Botón Ir a Red -->
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykYellow transition-colors flex items-center gap-1">
-                                <i class="fas fa-heart text-red-500"></i> <span>1.2K</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="fas fa-share"></i> 140</span>
-                        </div>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykYellow/10 text-cmykYellow hover:bg-cmykYellow hover:text-black px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en TikTok <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Post 4: Instagram -->
-                <div class="social-post social-instagram bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykMagenta transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-cmykYellow via-cmykMagenta to-cmykCyan p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">tj_diseno_publicidad <i class="fas fa-check-circle text-cmykCyan text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">Instagram • Hace 4 días</span>
-                                </div>
-                            </div>
-                            <a href="https://instagram.com" target="_blank" rel="noopener" class="text-cmykMagenta hover:scale-110 transition-transform">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                        </div>
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', 'Post Instagram: Logotipos & Papelería', 'Diseño vectorial e impresión de tarjetas con barniz UV.')">
-                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Post Instagram Branding" class="w-full h-64 object-cover">
-                        </div>
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                🎨 Tarjetas de presentación premium con acabado Soft Touch y Folia Dorada. Entrega rápida a domicilio.
-                            </p>
-                            <span class="text-[11px] text-cmykMagenta mt-2 block font-semibold">#TarjetasDePresentacion #DiseñoDeLogo</span>
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykMagenta transition-colors flex items-center gap-1">
-                                <i class="far fa-heart"></i> <span>310</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="far fa-comment"></i> 18</span>
-                        </div>
-                        <a href="https://instagram.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykMagenta/10 text-cmykMagenta hover:bg-cmykMagenta hover:text-white px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en Instagram <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Post 5: Facebook -->
-                <div class="social-post social-facebook bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykCyan transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-cmykCyan p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">TJ Diseño & Publicidad <i class="fas fa-check-circle text-cmykCyan text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">Facebook • Hace 5 días</span>
-                                </div>
-                            </div>
-                            <a href="https://facebook.com" target="_blank" rel="noopener" class="text-cmykCyan hover:scale-110 transition-transform">
-                                <i class="fab fa-facebook-f text-xl"></i>
-                            </a>
-                        </div>
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80', 'Post Facebook: Bastidores Gigantes', 'Montaje de estructura metálica e instalación en altura.')">
-                            <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Post Facebook Montaje" class="w-full h-64 object-cover">
-                        </div>
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                🏗️ Trabajo de altura completado. Instalación de estructura metálica tensada para anuncio exterior. ¡Gracias por la confianza!
-                            </p>
-                            <span class="text-[11px] text-cmykCyan mt-2 block font-semibold">#MontajePublicitario #InstalacionesReales</span>
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykCyan transition-colors flex items-center gap-1">
-                                <i class="far fa-thumbs-up"></i> <span>420</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="far fa-comment-alt"></i> 45</span>
-                        </div>
-                        <a href="https://facebook.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykCyan/10 text-cmykCyan hover:bg-cmykCyan hover:text-black px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en Facebook <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Post 6: TikTok -->
-                <div class="social-post social-tiktok bg-cmykBlack rounded-2xl border border-gray-800 overflow-hidden hover:border-cmykYellow transition-all duration-300 flex flex-col justify-between">
-                    <div>
-                        <div class="p-4 flex items-center justify-between border-b border-gray-900">
-                            <div class="flex items-center space-x-3">
-                                <div class="w-10 h-10 rounded-full bg-cmykYellow p-0.5">
-                                    <div class="w-full h-full bg-cmykBlack rounded-full flex items-center justify-center font-bold text-xs text-white">TJ</div>
-                                </div>
-                                <div>
-                                    <h4 class="text-xs font-bold text-white flex items-center gap-1">@tj_diseno_oficial <i class="fas fa-check-circle text-cmykYellow text-[11px]"></i></h4>
-                                    <span class="text-[10px] text-gray-400">TikTok • Hace 1 semana</span>
-                                </div>
-                            </div>
-                            <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-cmykYellow hover:scale-110 transition-transform">
-                                <i class="fab fa-tiktok text-xl"></i>
-                            </a>
-                        </div>
-                        <div class="relative group cursor-pointer" onclick="openModal('https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=1200&q=80', 'Video TikTok: Microperforado', 'Tutorial rápido de aplicación de vinil microperforado.')">
-                            <img src="https://images.unsplash.com/photo-1562654501-a0ccc0fc3fb1?auto=format&fit=crop&w=800&q=80" alt="Video TikTok Vinil" class="w-full h-64 object-cover">
-                            <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-                                <div class="w-12 h-12 rounded-full bg-cmykYellow/90 text-black flex items-center justify-center text-xl shadow-lg group-hover:scale-110 transition-transform">
-                                    <i class="fas fa-play ml-1"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-4">
-                            <p class="text-xs text-gray-300 leading-relaxed">
-                                🔥 Tip de instalación: cómo aplicar vinil microperforado en ventanas sin dejar burbujas de aire. 💡
-                            </p>
-                            <span class="text-[11px] text-cmykYellow mt-2 block font-semibold">#TipsDePublicidad #VinilMicroperforado</span>
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-900 bg-gray-950/40 flex items-center justify-between">
-                        <div class="flex items-center space-x-4 text-gray-400 text-xs">
-                            <button onclick="likePost(this)" class="hover:text-cmykYellow transition-colors flex items-center gap-1">
-                                <i class="fas fa-heart text-red-500"></i> <span>3.5K</span>
-                            </button>
-                            <span class="flex items-center gap-1"><i class="fas fa-share"></i> 290</span>
-                        </div>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="text-[11px] bg-cmykYellow/10 text-cmykYellow hover:bg-cmykYellow hover:text-black px-3 py-1.5 rounded-lg font-bold transition-all flex items-center gap-1">
-                            Ver en TikTok <i class="fas fa-arrow-right text-[9px]"></i>
-                        </a>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Banner / Banner de Conexión a Redes -->
-            <div class="mt-12 bg-gradient-to-r from-cmykCyan/10 via-cmykMagenta/10 to-cmykYellow/10 border border-gray-800 rounded-2xl p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-                <div class="flex items-center gap-4">
-                    <div class="w-12 h-12 rounded-xl bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow p-0.5 shrink-0">
-                        <div class="w-full h-full bg-cmykBlack rounded-[10px] flex items-center justify-center text-xl text-white">
-                            <i class="fas fa-globe"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-base font-bold text-white">Síguenos en nuestras redes sociales oficiales</h4>
-                        <p class="text-xs text-gray-400">Publicamos contenido diario con ideas, promociones e instalaciones en directo.</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3 w-full md:w-auto justify-center">
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="bg-gray-900 hover:bg-cmykMagenta text-white p-3 rounded-xl transition-colors text-lg" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener" class="bg-gray-900 hover:bg-cmykCyan text-white p-3 rounded-xl transition-colors text-lg" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener" class="bg-gray-900 hover:bg-cmykYellow hover:text-black text-white p-3 rounded-xl transition-colors text-lg" aria-label="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
-                    <a href="https://wa.me/5216641234567" target="_blank" rel="noopener" class="bg-green-500 hover:bg-green-600 text-white px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-md">
-                        <i class="fab fa-whatsapp text-base"></i> Chatear
-                    </a>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- 7. SECCIÓN COTIZACIÓN RÁPIDA & WHATSAPP -->
-    <section class="py-16 bg-gradient-to-r from-gray-900 via-cmykBlack to-gray-900 border-t border-gray-800 relative overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="bg-darkCard rounded-3xl p-8 md:p-12 border border-gray-800 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-2xl">
-                <div class="max-w-2xl">
-                    <span class="text-cmykCyan font-bold text-xs uppercase tracking-widest">¿Tienes un proyecto en mente?</span>
-                    <h3 class="text-3xl md:text-4xl font-display font-black text-white mt-2">¿Necesitas una cotización inmediata?</h3>
-                    <p class="text-gray-400 mt-4 text-sm md:text-base">
-                        Envíanos las medidas, tipo de trabajo (diseño, lona, letrero, rotulación) y te enviamos un presupuesto sin compromiso de inmediato por WhatsApp.
+                    <p class="text-gray-400 text-xs leading-relaxed">
+                        Publicidad visual de alta calidad: diseño gráfico, impresión en gran formato e instalaciones comerciales.
                     </p>
                 </div>
-                <div class="w-full lg:w-auto flex flex-col sm:flex-row gap-4">
-                    <a href="https://wa.me/5216641234567?text=Hola!%20Me%20interesa%20cotizar%20un%20trabajo%20de%20impresi%C3%B3n/instalaci%C3%B3n." target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-8 py-4 rounded-2xl font-bold text-center transition-all flex items-center justify-center gap-3 shadow-lg shadow-green-500/20">
-                        <i class="fab fa-whatsapp text-2xl"></i> Enviar Mensaje Directo
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- 8. SECCIÓN DE CONTACTO & REDES SOCIALES -->
-    <footer id="contacto" class="bg-black pt-20 pb-12 border-t border-gray-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-16">
-                
-                <!-- Columna 1: Info Marca -->
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow p-0.5">
-                            <div class="w-full h-full bg-cmykBlack rounded-[6px] flex items-center justify-center">
-                                <span class="font-display font-black text-white text-xs">TJ</span>
-                            </div>
-                        </div>
-                        <span class="font-display font-bold text-lg text-white">TJ DISEÑO & PUBLICIDAD</span>
-                    </div>
-                    <p class="text-gray-400 text-xs leading-relaxed mb-6">
-                        Soluciones visuales profesionales para tu negocio. Calidad garantizada en diseño, impresión e instalaciones publicitarias de alto impacto.
-                    </p>
-                    <!-- Redes Sociales -->
-                    <div class="flex space-x-3">
-                        <a href="https://facebook.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykCyan hover:border-cmykCyan transition-colors" aria-label="Facebook">
-                            <i class="fab fa-facebook-f text-sm"></i>
-                        </a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykMagenta hover:border-cmykMagenta transition-colors" aria-label="Instagram">
-                            <i class="fab fa-instagram text-sm"></i>
-                        </a>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykYellow hover:border-cmykYellow transition-colors" aria-label="TikTok">
-                            <i class="fab fa-tiktok text-sm"></i>
-                        </a>
-                        <a href="https://wa.me/5216641234567" target="_blank" rel="noopener" class="w-9 h-9 rounded-full bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-green-400 hover:border-green-400 transition-colors" aria-label="WhatsApp">
-                            <i class="fab fa-whatsapp text-sm"></i>
-                        </a>
-                    </div>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykCyan pl-2">Servicios</h4>
+                    <ul class="space-y-1.5 text-xs text-gray-400">
+                        <li>Gran Formato & Lonas</li>
+                        <li>Anuncios Luminosos LED</li>
+                        <li>Rotulación Vehicular</li>
+                        <li>Diseño de Logotipos</li>
+                    </ul>
                 </div>
 
-                <!-- Columna 2: Servicios Rápidos -->
                 <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-cmykCyan pl-3">Servicios</h4>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykMagenta pl-2">Contacto Directo</h4>
                     <ul class="space-y-2 text-xs text-gray-400">
-                        <li><a href="#servicios" class="hover:text-cmykCyan transition-colors">Diseño Gráfico & Logotipos</a></li>
-                        <li><a href="#servicios" class="hover:text-cmykCyan transition-colors">Impresión Gran Formato</a></li>
-                        <li><a href="#servicios" class="hover:text-cmykCyan transition-colors">Anuncios Luminosos LED</a></li>
-                        <li><a href="#servicios" class="hover:text-cmykCyan transition-colors">Rotulación Vehicular</a></li>
-                        <li><a href="#servicios" class="hover:text-cmykCyan transition-colors">Tarjetas & Papelería</a></li>
+                        <li><i class="fas fa-phone-alt text-cmykMagenta mr-2"></i>+52 (664) 123-4567</li>
+                        <li><i class="fas fa-envelope text-cmykMagenta mr-2"></i>contacto@tjdiseno.com</li>
+                        <li><i class="fas fa-map-marker-alt text-cmykMagenta mr-2"></i>Servicio e Instalaciones Locales</li>
                     </ul>
                 </div>
 
-                <!-- Columna 3: Contacto Directo -->
                 <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-cmykMagenta pl-3">Contacto Directo</h4>
-                    <ul class="space-y-3 text-xs text-gray-400">
-                        <li class="flex items-start gap-3">
-                            <i class="fas fa-map-marker-alt text-cmykMagenta mt-0.5"></i>
-                            <span>Atención en taller & servicio a domicilio en toda la ciudad.</span>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-phone-alt text-cmykMagenta"></i>
-                            <a href="tel:+526641234567" class="hover:text-white transition-colors">+52 (664) 123-4567</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-envelope text-cmykMagenta"></i>
-                            <a href="mailto:contacto@tjdiseno.com" class="hover:text-white transition-colors">contacto@tjdiseno.com</a>
-                        </li>
-                        <li class="flex items-center gap-3">
-                            <i class="fas fa-clock text-cmykMagenta"></i>
-                            <span>Lun - Vie: 9:00 AM - 6:30 PM</span>
-                        </li>
-                    </ul>
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykYellow pl-2">Redes Oficiales</h4>
+                    <div class="flex space-x-2">
+                        <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykCyan transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
+                        <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykMagenta transition-colors"><i class="fab fa-instagram text-xs"></i></a>
+                        <a href="https://tiktok.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykYellow transition-colors"><i class="fab fa-tiktok text-xs"></i></a>
+                        <a href="https://wa.me/5216641234567" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-whatsapp text-xs"></i></a>
+                    </div>
                 </div>
-
-                <!-- Columna 4: Formulario Corto -->
-                <div>
-                    <h4 class="text-sm font-bold text-white uppercase tracking-wider mb-4 border-l-2 border-cmykYellow pl-3">Mensaje Rápido</h4>
-                    <form id="contactForm" class="space-y-2" onsubmit="handleFormSubmit(event)">
-                        <input type="text" placeholder="Tu Nombre" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykYellow">
-                        <input type="tel" placeholder="Tu Teléfono / WhatsApp" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykYellow">
-                        <textarea placeholder="¿Qué trabajo necesitas?" rows="2" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykYellow"></textarea>
-                        <button type="submit" class="w-full bg-gradient-to-r from-cmykMagenta to-cmykCyan text-white text-xs font-bold py-2 rounded-lg hover:opacity-90 transition-opacity">Enviar Consulta</button>
-                    </form>
-                    <div id="formSuccess" class="hidden text-[11px] text-green-400 mt-2 font-medium">¡Gracias! Te contactaremos a la brevedad.</div>
-                </div>
-
             </div>
 
-            <!-- Copyright -->
-            <div class="border-t border-gray-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500">
+            <div class="border-t border-gray-900 pt-6 text-center text-[11px] text-gray-500">
                 <p>&copy; 2026 TJ Diseño & Publicidad. Todos los derechos reservados.</p>
-                <div class="flex items-center space-x-2 mt-4 sm:mt-0">
-                    <span class="w-2 h-2 rounded-full bg-cmykCyan"></span>
-                    <span class="w-2 h-2 rounded-full bg-cmykMagenta"></span>
-                    <span class="w-2 h-2 rounded-full bg-cmykYellow"></span>
-                    <span class="w-2 h-2 rounded-full bg-white"></span>
-                </div>
             </div>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <a href="https://wa.me/5216641234567?text=Hola,%20vi%20su%20p%C3%A1gina%20web%20y%20deseo%20m%C3%A1s%20informaci%C3%B3n" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       class="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl wa-pulse transition-transform hover:scale-110"
-       aria-label="Contactar por WhatsApp">
+    <!-- BOTÓN FLOTANTE WHATSAPP -->
+    <a href="https://wa.me/5216641234567?text=Hola,%20quisiera%20cotizar%20un%20trabajo" target="_blank" class="fixed bottom-5 right-5 z-50 bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-2xl wa-pulse">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <!-- MODAL DE IMÁGENES / LIGHTBOX -->
+    <!-- MODAL LIGHTBOX DE GALERÍA -->
     <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="relative max-w-4xl w-full bg-cmykBlack rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-            <!-- Botón Cerrar -->
-            <button onclick="closeModal()" class="absolute top-4 right-4 z-10 bg-black/70 hover:bg-cmykMagenta text-white w-10 h-10 rounded-full flex items-center justify-center transition-colors">
-                <i class="fas fa-times text-lg"></i>
+        <div class="relative max-w-3xl w-full bg-cmykBlack rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+            <button onclick="closeModal()" class="absolute top-3 right-3 z-10 bg-black/70 hover:bg-cmykMagenta text-white w-8 h-8 rounded-full flex items-center justify-center">
+                <i class="fas fa-times text-sm"></i>
             </button>
-            
             <div class="flex flex-col md:flex-row">
-                <!-- Imagen -->
-                <div class="md:w-2/3 bg-black flex items-center justify-center min-h-[300px]">
-                    <img id="modalImg" src="" alt="Trabajo Publicitario" class="max-h-[80vh] w-auto object-contain">
+                <div class="md:w-3/5 bg-black flex items-center justify-center min-h-[250px]">
+                    <img id="modalImg" src="" alt="Trabajo" class="max-h-[70vh] w-auto object-contain">
                 </div>
-                <!-- Info -->
-                <div class="md:w-1/3 p-6 flex flex-col justify-between">
+                <div class="md:w-2/5 p-5 flex flex-col justify-between">
                     <div>
-                        <span class="text-xs font-bold text-cmykCyan uppercase tracking-widest mb-1 block">Detalle de Proyecto</span>
-                        <h3 id="modalTitle" class="text-xl font-bold text-white mb-2"></h3>
-                        <p id="modalDesc" class="text-xs text-gray-400 leading-relaxed mb-6"></p>
+                        <span class="text-[10px] font-bold text-cmykCyan uppercase tracking-widest mb-1 block">Proyecto</span>
+                        <h3 id="modalTitle" class="text-base font-bold text-white mb-2"></h3>
+                        <p id="modalDesc" class="text-xs text-gray-400 leading-relaxed mb-4"></p>
                     </div>
-                    <div>
-                        <a id="modalWaBtn" href="#" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-xl font-bold text-xs flex items-center justify-center gap-2 transition-colors">
-                            <i class="fab fa-whatsapp text-lg"></i> Cotizar este Trabajo
-                        </a>
-                    </div>
+                    <a id="modalWaBtn" href="#" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-base"></i> Cotizar este Trabajo
+                    </a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT DE FUNCIONALIDADES -->
+    <!-- JAVASCRIPT PRINCIPAL Y CAMBIO DE PESTAÑAS FEED -->
     <script>
-        // --- Carrusel del Banner Superior ---
+        // Cambiar pestañas del Feed Social en Barra Lateral
+        function switchTab(platform) {
+            // Ocultar todos los contenidos
+            document.querySelectorAll('.social-content').forEach(el => el.classList.add('hidden'));
+            document.querySelectorAll('.social-tab-btn').forEach(btn => {
+                btn.classList.remove('bg-cmykCyan', 'bg-cmykMagenta', 'bg-cmykYellow', 'text-black');
+                btn.classList.add('text-gray-400');
+            });
+
+            // Mostrar el contenido seleccionado y dar estilo a la pestaña
+            const content = document.getElementById(`feed-content-${platform}`);
+            const tab = document.getElementById(`tab-${platform}`);
+            
+            if (content && tab) {
+                content.classList.remove('hidden');
+                tab.classList.remove('text-gray-400');
+                if (platform === 'fb') tab.classList.add('bg-cmykCyan', 'text-black');
+                if (platform === 'ig') tab.classList.add('bg-cmykMagenta', 'text-white');
+                if (platform === 'tt') tab.classList.add('bg-cmykYellow', 'text-black');
+            }
+        }
+
+        // Carrusel
         let currentSlide = 0;
         const slides = document.querySelectorAll('.carousel-slide');
-        const totalSlides = slides.length;
-
         function showSlide(index) {
             slides.forEach((slide, i) => {
-                if (i === index) {
-                    slide.classList.remove('opacity-0');
-                    slide.classList.add('opacity-100');
-                } else {
-                    slide.classList.remove('opacity-100');
-                    slide.classList.add('opacity-0');
-                }
+                slide.classList.toggle('opacity-100', i === index);
+                slide.classList.toggle('opacity-0', i !== index);
             });
         }
-
-        function nextSlide() {
-            currentSlide = (currentSlide + 1) % totalSlides;
+        document.getElementById('nextSlide')?.addEventListener('click', () => {
+            currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
-        }
-
-        function prevSlide() {
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
+        });
+        document.getElementById('prevSlide')?.addEventListener('click', () => {
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
             showSlide(currentSlide);
-        }
+        });
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }, 5000);
 
-        document.getElementById('nextSlide').addEventListener('click', nextSlide);
-        document.getElementById('prevSlide').addEventListener('click', prevSlide);
-
-        // Auto-play carrusel cada 5 segundos
-        setInterval(nextSlide, 5000);
-
-
-        // --- Menú Móvil ---
+        // Menú Móvil
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-
-        // --- Filtro de Galería de Portafolio ---
+        // Filtro Galería
         const filterBtns = document.querySelectorAll('.filter-btn');
         const galleryItems = document.querySelectorAll('.gallery-item');
-
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
                 filterBtns.forEach(b => {
                     b.classList.remove('bg-cmykCyan', 'text-black');
                     b.classList.add('bg-darkCard', 'text-gray-300');
                 });
-                
                 btn.classList.remove('bg-darkCard', 'text-gray-300');
                 btn.classList.add('bg-cmykCyan', 'text-black');
-
                 const filter = btn.getAttribute('data-filter');
-
                 galleryItems.forEach(item => {
-                    if (filter === 'all' || item.classList.contains(`category-${filter}`)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+                    item.style.display = (filter === 'all' || item.classList.contains(`category-${filter}`)) ? 'block' : 'none';
                 });
             });
         });
 
-
-        // --- Filtro de Social Wall / Feed de Redes Sociales ---
-        const socialFilterBtns = document.querySelectorAll('.social-filter-btn');
-        const socialPosts = document.querySelectorAll('.social-post');
-
-        socialFilterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                socialFilterBtns.forEach(b => {
-                    b.classList.remove('bg-cmykCyan', 'text-black');
-                    b.classList.add('bg-darkCard', 'text-gray-300');
-                });
-
-                btn.classList.remove('bg-darkCard', 'text-gray-300');
-                btn.classList.add('bg-cmykCyan', 'text-black');
-
-                const platform = btn.getAttribute('data-social');
-
-                socialPosts.forEach(post => {
-                    if (platform === 'all' || post.classList.contains(`social-${platform}`)) {
-                        post.style.display = 'flex';
-                    } else {
-                        post.style.display = 'none';
-                    }
-                });
-            });
-        });
-
-        // Dar Me Gusta a publicaciones interactivo
-        function likePost(button) {
-            const countSpan = button.querySelector('span');
-            let currentLikes = parseInt(countSpan.textContent.replace('K', '000').replace('.', ''));
-            
-            if (button.classList.contains('text-red-500') || button.classList.contains('text-cmykMagenta') || button.classList.contains('text-cmykCyan')) {
-                // Dislike
-                button.classList.remove('text-red-500', 'text-cmykMagenta', 'text-cmykCyan');
-                countSpan.textContent = parseInt(countSpan.textContent) - 1;
-            } else {
-                // Like
-                button.classList.add('text-cmykMagenta');
-                countSpan.textContent = parseInt(countSpan.textContent) + 1;
-            }
-        }
-
-
-        // --- Modal Lightbox ---
+        // Modal Lightbox
         const modal = document.getElementById('imageModal');
-        const modalImg = document.getElementById('modalImg');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalDesc = document.getElementById('modalDesc');
-        const modalWaBtn = document.getElementById('modalWaBtn');
-
         function openModal(imgSrc, title, desc) {
-            modalImg.src = imgSrc;
-            modalTitle.textContent = title;
-            modalDesc.textContent = desc;
-            
-            const waText = encodeURIComponent(`Hola, vi en su sitio web el trabajo de "${title}" y me gustaría solicitar una cotización.`);
-            modalWaBtn.href = `https://wa.me/5216641234567?text=${waText}`;
-
+            document.getElementById('modalImg').src = imgSrc;
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalDesc').textContent = desc;
+            document.getElementById('modalWaBtn').href = `https://wa.me/5216641234567?text=${encodeURIComponent(`Hola, me interesa cotizar el trabajo de ${title}`)}`;
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
         }
-
         function closeModal() {
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
-        }
-
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
-        });
-
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) closeModal();
-        });
-
-
-        // --- Formulario de Contacto Rápido ---
-        function handleFormSubmit(e) {
-            e.preventDefault();
-            const successMsg = document.getElementById('formSuccess');
-            successMsg.classList.remove('hidden');
-            e.target.reset();
-            setTimeout(() => {
-                successMsg.classList.add('hidden');
-            }, 4000);
         }
     </script>
 </body>
