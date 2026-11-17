@@ -1,678 +1,606 @@
-```html
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TJ Diseño & Publicidad | Servicios de Impresión y Montaje</title>
+    <title>TJ Diseño y Publicidad | Impresión, Anuncios y Rotulación</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Tools & Social Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter & Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Poppins:wght@700;900&display=swap" rel="stylesheet">
-    
-    <!-- Configuración personalizada de Tailwind -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        cmykCyan: '#00AEEF',
-                        cmykMagenta: '#EC008C',
-                        cmykYellow: '#FFF200',
-                        cmykBlack: '#111111',
-                        darkCard: '#1A1A1A',
-                        darkHover: '#242424'
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        display: ['Poppins', 'sans-serif']
+                        cmykCyan: '#00FFFF',
+                        cmykMagenta: '#FF00FF',
+                        cmykYellow: '#FFFF00',
+                        darkBg: '#0b0f19',
+                        cardBg: '#131c2e',
+                        borderCol: '#1e293b'
                     }
                 }
             }
         }
     </script>
-
+    <!-- FontAwesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Estilos personalizados y utilidades de efectos */
-        .glass-nav {
-            background: rgba(17, 17, 17, 0.90);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+        /* Estilos personalizados para scrollbar y efectos */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        .text-gradient-cmyk {
-            background: linear-gradient(135deg, #00AEEF 0%, #EC008C 50%, #FFF200 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        ::-webkit-scrollbar-track {
+            background: #0b0f19;
         }
-
-        .cmyk-glow:hover {
-            box-shadow: 0 0 25px rgba(0, 174, 239, 0.25), 0 0 15px rgba(236, 0, 140, 0.25);
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
         }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
         }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
+        .glow-cyan:hover {
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
         }
-
-        @keyframes pulse-ring {
-            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-            70% { transform: scale(1); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .wa-pulse {
-            animation: pulse-ring 2s infinite;
+        .glow-magenta:hover {
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
         }
     </style>
 </head>
-<body class="bg-cmykBlack text-gray-100 font-sans selection:bg-cmykMagenta selection:text-white relative min-h-screen">
+<body class="bg-darkBg text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
 
-    <!-- SDK DE FACEBOOK PARA FEEDS REALES EN VIVO -->
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v18.0"></script>
-
-    <!-- BARRA SUPERIOR CMYK -->
-    <div class="h-1.5 w-full bg-gradient-to-r from-cmykCyan via-cmykMagenta to-cmykYellow fixed top-0 z-50"></div>
-
-    <!-- 1. BANNER SUPERIOR DE INSTALACIONES (CARRUSEL AUTOMÁTICO) -->
-    <section class="mt-1.5 relative w-full bg-black overflow-hidden h-56 sm:h-72 lg:h-80 border-b border-gray-800">
-        <div id="installation-carousel" class="w-full h-full relative">
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-100 flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80" alt="Instalación de Letrero Luminoso LED" class="w-full h-full object-cover brightness-50" onerror="this.src='https://placehold.co/1600x600/111/00AEEF?text=Instalacion+Anuncios+Luminosos'">
-                <div class="absolute inset-0 bg-gradient-to-t from-cmykBlack via-transparent to-black/40"></div>
-                <div class="absolute bottom-6 left-6 right-6 md:left-12 max-w-3xl">
-                    <span class="bg-cmykCyan text-black font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Instalaciones Reales</span>
-                    <h3 class="text-lg sm:text-2xl lg:text-3xl font-display font-bold text-white drop-shadow-md">Montaje de Anuncios Luminosos & Fachadas</h3>
-                    <p class="text-xs text-gray-300 mt-1 hidden sm:block">Trabajos de altura con acabados de alta durabilidad e iluminación LED.</p>
+    <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+    <header class="sticky top-0 z-50 bg-darkBg/90 backdrop-blur-md border-b border-borderCol">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-print text-darkBg font-black text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-xl font-black tracking-wider bg-gradient-to-r from-cmykCyan via-cmykMagenta to-cmykYellow bg-clip-text text-transparent">TJ DISEÑO</span>
+                    <span class="block text-xs tracking-widest text-slate-400 font-semibold uppercase">& Publicidad</span>
                 </div>
             </div>
-            <div class="carousel-slide absolute inset-0 transition-opacity duration-1000 opacity-0 flex items-center justify-center">
-                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80" alt="Rotulación Vehicular Comercial" class="w-full h-full object-cover brightness-50" onerror="this.src='https://placehold.co/1600x600/111/EC008C?text=Branding+Vehicular'">
-                <div class="absolute inset-0 bg-gradient-to-t from-cmykBlack via-transparent to-black/40"></div>
-                <div class="absolute bottom-6 left-6 right-6 md:left-12 max-w-3xl">
-                    <span class="bg-cmykMagenta text-white font-extrabold text-[10px] sm:text-xs px-3 py-1 rounded-full uppercase tracking-widest mb-2 inline-block">Branding Flotillas</span>
-                    <h3 class="text-lg sm:text-2xl lg:text-3xl font-display font-bold text-white drop-shadow-md">Rotulación & Vinil Vehicular Comercial</h3>
-                    <p class="text-xs text-gray-300 mt-1 hidden sm:block">Transformamos tus vehículos en publicidad móvil 24/7.</p>
+
+            <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#banner-instalaciones" class="hover:text-cmykCyan transition">Instalaciones</a>
+                <a href="#muro-trabajos" class="hover:text-cmykMagenta transition">Trabajos Realizados</a>
+                <a href="#servicios" class="hover:text-cmykYellow transition">Servicios</a>
+                <a href="#cotizador" class="hover:text-cmykCyan transition">Cotizar</a>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <a href="https://wa.me/526670000000?text=Hola,%20me%20interesa%20cotizar%20un%20trabajo%20de%20diseño%20o%20publicidad" target="_blank" 
+                   class="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-xl font-bold flex items-center space-x-2 text-sm transition shadow-lg shadow-emerald-600/30">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span class="hidden sm:inline">WhatsApp Directo</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER SUPERIOR DE FOTOS DE INSTALACIONES -->
+    <section id="banner-instalaciones" class="relative bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 py-10 border-b border-borderCol overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-6">
+                <span class="text-xs uppercase tracking-widest px-3 py-1 bg-cmykCyan/10 text-cmykCyan rounded-full font-bold border border-cmykCyan/30">Calidad Garantizada</span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">Instalaciones y Trabajos Realizados en Campo</h2>
+                <p class="text-sm text-slate-400 mt-1">Conoce nuestros acabados profesionales en lonas, anuncios luminosos, vinil y rotulación vehicular.</p>
+            </div>
+            
+            <!-- Carrusel / Grid de Fotos de Instalación -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="relative group overflow-hidden rounded-xl border border-borderCol h-40 sm:h-48">
+                    <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80" alt="Instalación 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+                        <span class="text-xs font-bold text-cmykCyan">Anuncios Luminosos Comerciales</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-borderCol h-40 sm:h-48">
+                    <img src="https://images.unsplash.com/photo-1542744094-3a31246264d0?auto=format&fit=crop&w=600&q=80" alt="Instalación 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+                        <span class="text-xs font-bold text-cmykMagenta">Rotulación e Impresión Gran Formato</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-borderCol h-40 sm:h-48">
+                    <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80" alt="Instalación 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+                        <span class="text-xs font-bold text-cmykYellow">Decoración y Vinil de Corte</span>
+                    </div>
+                </div>
+                <div class="relative group overflow-hidden rounded-xl border border-borderCol h-40 sm:h-48">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=600&q=80" alt="Instalación 4" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-darkBg/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition flex items-end p-3">
+                        <span class="text-xs font-bold text-cmykCyan">Estructuras y Exhibidores</span>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <button id="prevSlide" class="absolute left-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykCyan text-white p-2 sm:p-3 rounded-full transition-all focus:outline-none">
-            <i class="fas fa-chevron-left text-xs sm:text-base"></i>
-        </button>
-        <button id="nextSlide" class="absolute right-3 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-cmykMagenta text-white p-2 sm:p-3 rounded-full transition-all focus:outline-none">
-            <i class="fas fa-chevron-right text-xs sm:text-base"></i>
-        </button>
     </section>
 
-    <!-- 2. NAVBAR NAVEGACIÓN -->
-    <nav class="sticky top-0 z-40 glass-nav border-b border-gray-800">
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16 sm:h-20">
-                <a href="#" class="flex items-center space-x-3 group">
-                    <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-gradient-to-tr from-cmykCyan via-cmykMagenta to-cmykYellow p-0.5 shadow-lg group-hover:scale-105 transition-transform">
-                        <div class="w-full h-full bg-cmykBlack rounded-[7px] flex items-center justify-center">
-                            <span class="font-display font-black text-transparent bg-clip-text bg-gradient-to-r from-cmykCyan to-cmykMagenta text-lg">TJ</span>
+    <!-- CONTENEDOR PRINCIPAL: 2 COLUMNAS (Muro Izquierdo + Redes Sociales Derechas) -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        
+        <!-- COLUMNA IZQUIERDA / CENTRO: MURO DE TRABAJOS Y SERVICIOS (Ocupa 8 columnas) -->
+        <div class="lg:col-span-8 space-y-12">
+
+            <!-- Hero / Presentación -->
+            <div class="bg-gradient-to-br from-cardBg to-slate-900 border border-borderCol rounded-3xl p-6 sm:p-10 relative overflow-hidden">
+                <div class="absolute top-0 right-0 w-64 h-64 bg-cmykCyan/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-64 h-64 bg-cmykMagenta/5 rounded-full blur-3xl pointer-events-none"></div>
+                <div class="relative z-10">
+                    <span class="text-xs font-bold tracking-widest text-cmykYellow uppercase bg-cmykYellow/10 px-3 py-1 rounded-full border border-cmykYellow/30">Imprenta & Diseño Profesional</span>
+                    <h1 class="text-3xl sm:text-5xl font-black mt-4 leading-tight">Lleva tu negocio al siguiente nivel visual</h1>
+                    <p class="text-slate-300 mt-4 text-base sm:text-lg">Diseño gráfico de alto impacto, impresión digital, lonas, tarjetas, anuncios y publicidad exterior creada para atrapar clientes.</p>
+                    
+                    <div class="mt-6 flex flex-wrap gap-4">
+                        <a href="#cotizador" class="bg-gradient-to-r from-cmykCyan to-blue-600 text-darkBg font-black px-6 py-3 rounded-xl transition hover:opacity-90 shadow-lg shadow-cmykCyan/20">
+                            <i class="fa-solid fa-calculator mr-2"></i> Cotizar Proyecto
+                        </a>
+                        <a href="#muro-trabajos" class="bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold px-6 py-3 rounded-xl transition border border-borderCol">
+                            Ver Trabajos
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECCIÓN: MURO DE TRABAJOS REALIZADOS -->
+            <section id="muro-trabajos" class="space-y-6">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-borderCol pb-4">
+                    <div>
+                        <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                            <i class="fa-solid fa-images text-cmykCyan"></i> Muro de Trabajos Realizados
+                        </h2>
+                        <p class="text-sm text-slate-400">Publicaciones recientes de nuestros proyectos entregados</p>
+                    </div>
+                    <!-- Filtros -->
+                    <div class="flex flex-wrap gap-2 text-xs font-bold">
+                        <button onclick="filterWorks('all')" class="filter-btn px-3 py-1.5 rounded-lg bg-cmykCyan text-darkBg transition">Todos</button>
+                        <button onclick="filterWorks('lonas')" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Lonas</button>
+                        <button onclick="filterWorks('vinil')" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Vinil & Rotulación</button>
+                        <button onclick="filterWorks('branding')" class="filter-btn px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 transition">Branding</button>
+                    </div>
+                </div>
+
+                <!-- Grid del Muro -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="works-grid">
+                    
+                    <!-- Post 1 -->
+                    <div class="work-card branding bg-cardBg border border-borderCol rounded-2xl overflow-hidden shadow-xl hover:border-cmykCyan/50 transition">
+                        <div class="p-4 flex items-center justify-between border-b border-borderCol/50">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-cmykCyan to-cmykMagenta flex items-center font-bold text-darkBg justify-center text-xs">TJ</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">TJ Diseño y Publicidad</h4>
+                                    <span class="text-xs text-slate-400">Hace 2 horas</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-cmykCyan/10 text-cmykCyan font-bold px-2 py-1 rounded">Branding</span>
+                        </div>
+                        <div class="relative group cursor-pointer" onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Diseño de Logo" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <p class="text-sm text-slate-300">Desarrollo de identidad visual completa, logotipo y papelería corporativa para negocio local. ¡Diseños que venden! 🎨✨</p>
+                            <div class="flex items-center justify-between pt-2 border-t border-borderCol/55 text-xs text-slate-400">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1.5 text-slate-300 hover:text-cmykMagenta transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">48</span> Me gusta
+                                </button>
+                                <a href="https://wa.me/526670000000?text=Hola,%20me%20interesa%20un%20diseño%20similar%20al%20de%20su%20publicación%20de%20Branding" target="_blank" class="text-cmykCyan hover:underline font-bold">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> Cotizar similar
+                                </a>
+                            </div>
                         </div>
                     </div>
-                    <div class="flex flex-col">
-                        <span class="font-display font-black text-base sm:text-lg tracking-tight text-white">TJ <span class="text-cmykCyan">DISEÑO</span> & <span class="text-cmykMagenta">PUBLICIDAD</span></span>
-                        <span class="text-[9px] text-gray-400 tracking-widest uppercase -mt-1 font-semibold">Graphics & Media Studio</span>
+
+                    <!-- Post 2 -->
+                    <div class="work-card lonas bg-cardBg border border-borderCol rounded-2xl overflow-hidden shadow-xl hover:border-cmykMagenta/50 transition">
+                        <div class="p-4 flex items-center justify-between border-b border-borderCol/50">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-cmykCyan to-cmykMagenta flex items-center font-bold text-darkBg justify-center text-xs">TJ</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">TJ Diseño y Publicidad</h4>
+                                    <span class="text-xs text-slate-400">Ayer</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-cmykMagenta/10 text-cmykMagenta font-bold px-2 py-1 rounded">Lonas</span>
+                        </div>
+                        <div class="relative group cursor-pointer" onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=800&q=80" alt="Lonas Impresas" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <p class="text-sm text-slate-300">Impresión en gran formato con alta resolución. Lonas reforzadas con ojillos listas para exterior. 🏙️🔥</p>
+                            <div class="flex items-center justify-between pt-2 border-t border-borderCol/55 text-xs text-slate-400">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1.5 text-slate-300 hover:text-cmykMagenta transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">74</span> Me gusta
+                                </button>
+                                <a href="https://wa.me/526670000000?text=Hola,%20necesito%20cotizar%20unas%20lonas%20publicitarias" target="_blank" class="text-cmykCyan hover:underline font-bold">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> Cotizar similar
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                </a>
 
-                <div class="hidden md:flex items-center space-x-6 text-xs sm:text-sm font-semibold">
-                    <a href="#inicio" class="text-gray-300 hover:text-cmykCyan transition-colors">Inicio</a>
-                    <a href="#servicios" class="text-gray-300 hover:text-cmykMagenta transition-colors">Servicios</a>
-                    <a href="#portafolio" class="text-gray-300 hover:text-cmykYellow transition-colors">Portafolio</a>
-                    <a href="#cotizador" class="text-gray-300 hover:text-cmykCyan transition-colors">Cotizador WhatsApp</a>
-                    <a href="#contacto" class="text-gray-300 hover:text-cmykMagenta transition-colors">Contacto</a>
+                    <!-- Post 3 -->
+                    <div class="work-card vinil bg-cardBg border border-borderCol rounded-2xl overflow-hidden shadow-xl hover:border-cmykYellow/50 transition">
+                        <div class="p-4 flex items-center justify-between border-b border-borderCol/50">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-cmykCyan to-cmykMagenta flex items-center font-bold text-darkBg justify-center text-xs">TJ</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">TJ Diseño y Publicidad</h4>
+                                    <span class="text-xs text-slate-400">Hace 3 días</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-cmykYellow/10 text-cmykYellow font-bold px-2 py-1 rounded">Vinil</span>
+                        </div>
+                        <div class="relative group cursor-pointer" onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=800&q=80" alt="Rotulación" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <p class="text-sm text-slate-300">Rotulación profesional en vinil de recorte para escaparates y negocios. ¡Atrae más miradas! 🏢✨</p>
+                            <div class="flex items-center justify-between pt-2 border-t border-borderCol/55 text-xs text-slate-400">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1.5 text-slate-300 hover:text-cmykMagenta transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">91</span> Me gusta
+                                </button>
+                                <a href="https://wa.me/526670000000?text=Hola,%20me%20interesa%20rotulación%20en%20vinil" target="_blank" class="text-cmykCyan hover:underline font-bold">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> Cotizar similar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Post 4 -->
+                    <div class="work-card lonas bg-cardBg border border-borderCol rounded-2xl overflow-hidden shadow-xl hover:border-cmykCyan/50 transition">
+                        <div class="p-4 flex items-center justify-between border-b border-borderCol/50">
+                            <div class="flex items-center space-x-3">
+                                <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-cmykCyan to-cmykMagenta flex items-center font-bold text-darkBg justify-center text-xs">TJ</div>
+                                <div>
+                                    <h4 class="text-sm font-bold text-white">TJ Diseño y Publicidad</h4>
+                                    <span class="text-xs text-slate-400">Hace 5 días</span>
+                                </div>
+                            </div>
+                            <span class="text-xs bg-cmykCyan/10 text-cmykCyan font-bold px-2 py-1 rounded">Lonas</span>
+                        </div>
+                        <div class="relative group cursor-pointer" onclick="openLightbox(this)">
+                            <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" alt="Anuncios" class="w-full h-64 object-cover">
+                        </div>
+                        <div class="p-4 space-y-3">
+                            <p class="text-sm text-slate-300">Instalación terminada de estructura y lona publicitaria en carretera. Calidad y durabilidad garantizadas. 🚀</p>
+                            <div class="flex items-center justify-between pt-2 border-t border-borderCol/55 text-xs text-slate-400">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1.5 text-slate-300 hover:text-cmykMagenta transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">56</span> Me gusta
+                                </button>
+                                <a href="https://wa.me/526670000000?text=Hola,%20quiero%20cotizar%20estructura%20y%20lona" target="_blank" class="text-cmykCyan hover:underline font-bold">
+                                    <i class="fa-brands fa-whatsapp mr-1"></i> Cotizar similar
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- SECCIÓN: SERVICIOS -->
+            <section id="servicios" class="space-y-6 pt-6">
+                <div class="border-b border-borderCol pb-4">
+                    <h2 class="text-2xl font-black text-white flex items-center gap-2">
+                        <i class="fa-solid fa-screwdriver-wrench text-cmykMagenta"></i> Servicios que Ofrecemos
+                    </h2>
+                    <p class="text-sm text-slate-400">Soluciones integrales de publicidad para tu negocio</p>
                 </div>
 
-                <div class="hidden md:flex items-center">
-                    <a href="https://wa.me/5216641234567?text=Hola,%20quisiera%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-cmykCyan to-cmykMagenta text-white px-4 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center gap-2">
-                        <i class="fab fa-whatsapp text-base"></i> Cotizar
-                    </a>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div class="bg-cardBg border border-borderCol p-5 rounded-2xl hover:border-cmykCyan transition">
+                        <div class="w-12 h-12 bg-cmykCyan/10 rounded-xl flex items-center justify-center text-cmykCyan text-xl font-bold mb-4">
+                            <i class="fa-solid fa-pen-nib"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Diseño Gráfico</h3>
+                        <p class="text-xs text-slate-400 mt-2">Logotipos, identidad de marca, menús, flyers, tarjetas de presentación y vectorización.</p>
+                    </div>
+
+                    <div class="bg-cardBg border border-borderCol p-5 rounded-2xl hover:border-cmykMagenta transition">
+                        <div class="w-12 h-12 bg-cmykMagenta/10 rounded-xl flex items-center justify-center text-cmykMagenta text-xl font-bold mb-4">
+                            <i class="fa-solid fa-print"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Impresión Gran Formato</h3>
+                        <p class="text-xs text-slate-400 mt-2">Lonas publicitarias, vinil microperforado, vinil adhesivo, mesh y posters en alta definición.</p>
+                    </div>
+
+                    <div class="bg-cardBg border border-borderCol p-5 rounded-2xl hover:border-cmykYellow transition">
+                        <div class="w-12 h-12 bg-cmykYellow/10 rounded-xl flex items-center justify-center text-cmykYellow text-xl font-bold mb-4">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+                        <h3 class="font-bold text-white text-lg">Anuncios e Instalación</h3>
+                        <p class="text-xs text-slate-400 mt-2">Fabricación y montaje de anuncios luminosos, rotulación de vehículos y colocación en campo.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECCIÓN: COTIZADOR RÁPIDO POR WHATSAPP -->
+            <section id="cotizador" class="bg-gradient-to-br from-cardBg to-slate-900 border border-borderCol p-6 sm:p-8 rounded-3xl space-y-6">
+                <div class="text-center">
+                    <h2 class="text-2xl font-black text-white">Cotiza tu Proyecto al Instante</h2>
+                    <p class="text-sm text-slate-400 mt-1">Selecciona lo que necesitas y te mandamos el presupuesto directo a WhatsApp.</p>
                 </div>
 
-                <div class="md:hidden flex items-center">
-                    <button id="mobileMenuBtn" class="text-gray-300 hover:text-white p-2 focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">Tu Nombre / Negocio</label>
+                        <input type="text" id="clientName" placeholder="Ej. Taquería El Paisa" class="w-full bg-darkBg border border-borderCol rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cmykCyan">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-slate-300 mb-2">Servicio Requerido</label>
+                        <select id="serviceType" class="w-full bg-darkBg border border-borderCol rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cmykCyan">
+                            <option value="Lonas Publicitarias">Lonas Publicitarias</option>
+                            <option value="Diseño de Logotipo / Marca">Diseño de Logotipo / Marca</option>
+                            <option value="Vinil de Corte / Rotulación">Vinil de Corte / Rotulación</option>
+                            <option value="Anuncio Luminoso o Instalación">Anuncio Luminoso o Instalación</option>
+                            <option value="Otro tipo de trabajo">Otro tipo de trabajo</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-slate-300 mb-2">Detalles o Medidas del Trabajo</label>
+                    <textarea id="clientDetails" rows="3" placeholder="Ej. Necesito una lona de 3x2 metros con diseño incluido..." class="w-full bg-darkBg border border-borderCol rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-cmykCyan"></textarea>
+                </div>
+
+                <button onclick="sendQuoteWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl flex items-center justify-center space-x-2 transition shadow-lg shadow-emerald-600/30">
+                    <i class="fa-brands fa-whatsapp text-xl"></i>
+                    <span>Enviar Cotización por WhatsApp</span>
+                </button>
+            </section>
+
+        </div>
+
+
+        <!-- COLUMNA DERECHA: REDES SOCIALES INTERACTIVAS (Fija / Sticky) (Ocupa 4 columnas) -->
+        <div class="lg:col-span-4 space-y-6 lg:sticky lg:top-28">
+
+            <div class="bg-cardBg border border-borderCol rounded-3xl p-5 shadow-2xl space-y-5">
+                <div class="flex items-center justify-between border-b border-borderCol pb-4">
+                    <div>
+                        <h3 class="font-black text-white text-base flex items-center gap-2">
+                            <i class="fa-solid fa-share-nodes text-cmykCyan"></i> Redes Sociales
+                        </h3>
+                        <p class="text-xs text-slate-400">Síguenos e interactúa al momento</p>
+                    </div>
+                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                </div>
+
+                <!-- Tabs de Redes Sociales -->
+                <div class="grid grid-cols-3 gap-2 text-xs font-bold">
+                    <button onclick="switchSocial('facebook')" id="tab-fb" class="social-tab py-2 rounded-xl bg-blue-600 text-white transition flex items-center justify-center space-x-1">
+                        <i class="fa-brands fa-facebook"></i> <span>Facebook</span>
+                    </button>
+                    <button onclick="switchSocial('instagram')" id="tab-ig" class="social-tab py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 transition flex items-center justify-center space-x-1">
+                        <i class="fa-brands fa-instagram"></i> <span>Instagram</span>
+                    </button>
+                    <button onclick="switchSocial('tiktok')" id="tab-tt" class="social-tab py-2 rounded-xl bg-slate-800 text-slate-300 hover:bg-slate-700 transition flex items-center justify-center space-x-1">
+                        <i class="fa-brands fa-tiktok"></i> <span>TikTok</span>
                     </button>
                 </div>
-            </div>
-        </div>
 
-        <div id="mobileMenu" class="hidden md:hidden bg-cmykBlack border-b border-gray-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#inicio" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykCyan">Inicio</a>
-            <a href="#servicios" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykMagenta">Servicios</a>
-            <a href="#portafolio" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykYellow">Portafolio</a>
-            <a href="#cotizador" class="mobile-link block py-2 text-sm font-semibold text-cmykCyan">Cotizador Express</a>
-            <a href="#contacto" class="mobile-link block py-2 text-sm font-semibold text-gray-300 hover:text-cmykMagenta">Contacto</a>
-        </div>
-    </nav>
-
-    <!-- 3. CONTENEDOR PRINCIPAL TRES COLUMNAS (LAYOUT DASHBOARD / LANDING PAGE) -->
-    <div class="max-w-[1600px] mx-auto px-3 sm:px-6 lg:px-8 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-
-            <!-- ======================================================== -->
-            <!-- COLUMNA IZQUIERDA: FACEBOOK & INSTAGRAM FEED (3 COLS EN LG) -->
-            <!-- ======================================================== -->
-            <aside class="lg:col-span-3 sticky top-24 space-y-6 order-2 lg:order-1">
-                
-                <!-- FACEBOOK WALL -->
-                <div class="bg-darkCard rounded-2xl p-4 border border-gray-800 shadow-xl">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800 mb-3">
+                <!-- CONTENIDO RED SOCIAL: FACEBOOK -->
+                <div id="feed-facebook" class="social-feed-content space-y-4">
+                    <div class="flex items-center justify-between bg-darkBg/60 p-3 rounded-2xl border border-borderCol">
                         <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white">
-                                <i class="fab fa-facebook-f text-sm"></i>
-                            </div>
+                            <div class="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold"><i class="fa-brands fa-facebook-f"></i></div>
                             <div>
-                                <h3 class="text-xs font-bold text-white">Facebook Feed</h3>
-                                <p class="text-[10px] text-gray-400">Página Oficial</p>
+                                <h4 class="text-xs font-bold text-white">TJ Diseño y Publicidad</h4>
+                                <span class="text-[10px] text-slate-400">12.5K Seguidores</span>
                             </div>
                         </div>
-                        <a href="https://facebook.com" target="_blank" class="text-[10px] font-bold text-cmykCyan hover:underline">Ver Todo</a>
+                        <a href="https://facebook.com" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">Seguir</a>
                     </div>
 
-                    <!-- Embed Iframe Facebook Page Plugin -->
-                    <div class="w-full overflow-hidden rounded-xl bg-black border border-gray-900 flex justify-center">
-                        <div class="fb-page" 
-                             data-href="https://www.facebook.com/facebook" 
-                             data-tabs="timeline" 
-                             data-width="300" 
-                             data-height="420" 
-                             data-small-header="true" 
-                             data-adapt-container-width="true" 
-                             data-hide-cover="false" 
-                             data-show-facepile="false">
-                            <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore">
-                                <a href="https://www.facebook.com/facebook">Cargando Facebook Feed...</a>
-                            </blockquote>
+                    <!-- Post real en muro derecho -->
+                    <div class="bg-darkBg border border-borderCol rounded-2xl overflow-hidden">
+                        <div class="p-3 flex items-center justify-between text-xs border-b border-borderCol/50">
+                            <span class="font-bold text-slate-300">Facebook Post</span>
+                            <span class="text-[10px] text-slate-400">Hace 4 horas</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=500&q=80" alt="FB Post" class="w-full h-40 object-cover">
+                        <div class="p-3 space-y-2">
+                            <p class="text-xs text-slate-300">¡Trabajos de rotulación terminados con éxito! Gracias por confiar en nosotros. 🛠️✨</p>
+                            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-borderCol/40">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1 text-slate-300 hover:text-red-500 transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">35</span>
+                                </button>
+                                <a href="https://facebook.com" target="_blank" class="text-blue-400 hover:underline font-bold text-[11px]">Ver en Facebook <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></a>
+                            </div>
                         </div>
                     </div>
-
-                    <a href="https://facebook.com" target="_blank" rel="noopener" class="w-full mt-3 bg-blue-600/20 text-blue-400 hover:bg-blue-600 hover:text-white py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
-                        <i class="fab fa-facebook text-sm"></i> Seguir en Facebook
-                    </a>
                 </div>
 
-                <!-- INSTAGRAM WALL PREVIEW -->
-                <div class="bg-darkCard rounded-2xl p-4 border border-gray-800 shadow-xl">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800 mb-3">
+                <!-- CONTENIDO RED SOCIAL: INSTAGRAM -->
+                <div id="feed-instagram" class="social-feed-content space-y-4 hidden">
+                    <div class="flex items-center justify-between bg-darkBg/60 p-3 rounded-2xl border border-borderCol">
                         <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-cmykYellow via-cmykMagenta to-cmykCyan flex items-center justify-center text-white">
-                                <i class="fab fa-instagram text-sm"></i>
-                            </div>
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600 flex items-center justify-center text-white text-xs font-bold"><i class="fa-brands fa-instagram"></i></div>
                             <div>
-                                <h3 class="text-xs font-bold text-white">Instagram Posts</h3>
-                                <p class="text-[10px] text-gray-400">@tj_diseno_publicidad</p>
+                                <h4 class="text-xs font-bold text-white">@tjdiseno_pub</h4>
+                                <span class="text-[10px] text-slate-400">8.9K Seguidores</span>
                             </div>
                         </div>
-                        <span class="w-2 h-2 rounded-full bg-cmykMagenta animate-ping"></span>
+                        <a href="https://instagram.com" target="_blank" class="bg-gradient-to-r from-purple-600 to-pink-600 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">Seguir</a>
                     </div>
 
-                    <!-- Post Card Preview 1 -->
-                    <div class="space-y-3 max-h-[420px] overflow-y-auto no-scrollbar pr-1">
-                        <div class="bg-cmykBlack rounded-xl border border-gray-800 overflow-hidden">
-                            <div class="p-2.5 flex items-center justify-between border-b border-gray-900">
-                                <span class="text-[11px] font-bold text-white">Letreros Luminosos 💡</span>
-                                <i class="fab fa-instagram text-cmykMagenta text-xs"></i>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x400/111/EC008C?text=Instagram+Post'">
-                            <div class="p-2.5 text-[11px] text-gray-300">
-                                <p class="line-clamp-2">Caja de luz acabada en acrílico y leds de alta intensidad para exterior.</p>
-                            </div>
+                    <div class="bg-darkBg border border-borderCol rounded-2xl overflow-hidden">
+                        <div class="p-3 flex items-center justify-between text-xs border-b border-borderCol/50">
+                            <span class="font-bold text-slate-300">Instagram Reel / Post</span>
+                            <span class="text-[10px] text-slate-400">Ayer</span>
                         </div>
-
-                        <div class="bg-cmykBlack rounded-xl border border-gray-800 overflow-hidden">
-                            <div class="p-2.5 flex items-center justify-between border-b border-gray-900">
-                                <span class="text-[11px] font-bold text-white">Diseño Vectorial 🎨</span>
-                                <i class="fab fa-instagram text-cmykMagenta text-xs"></i>
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" class="w-full h-40 object-cover" onerror="this.src='https://placehold.co/600x400/111/00AEEF?text=Instagram+Branding'">
-                            <div class="p-2.5 text-[11px] text-gray-300">
-                                <p class="line-clamp-2">Identidad visual y papelería impresa en acabado mate premium.</p>
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=500&q=80" alt="IG Post" class="w-full h-40 object-cover">
+                        <div class="p-3 space-y-2">
+                            <p class="text-xs text-slate-300">Proceso de diseño y vectorización para marca de comida rápida. 🍔🔥 #branding #diseño</p>
+                            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-borderCol/40">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1 text-slate-300 hover:text-red-500 transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">120</span>
+                                </button>
+                                <a href="https://instagram.com" target="_blank" class="text-pink-400 hover:underline font-bold text-[11px]">Ver en Instagram <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></a>
                             </div>
                         </div>
                     </div>
-
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="w-full mt-3 bg-gradient-to-r from-cmykMagenta to-cmykCyan text-white hover:opacity-90 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
-                        <i class="fab fa-instagram text-sm"></i> Abrir Instagram
-                    </a>
                 </div>
 
-            </aside>
-
-
-            <!-- ======================================================== -->
-            <!-- COLUMNA CENTRO: CONTENIDO PRINCIPAL (6 COLS EN LG) -->
-            <!-- ======================================================== -->
-            <main class="lg:col-span-6 space-y-12 order-1 lg:order-2">
-
-                <!-- HERO RESUMEN -->
-                <section id="inicio" class="bg-darkCard/80 rounded-3xl p-6 sm:p-8 border border-gray-800 relative overflow-hidden">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-900 border border-gray-800 text-[11px] font-semibold mb-4">
-                        <span class="flex h-2 w-2 rounded-full bg-cmykYellow animate-pulse"></span>
-                        <span class="text-gray-300">Imprenta • Gran Formato • Instalaciones</span>
-                    </div>
-
-                    <h1 class="text-2xl sm:text-4xl font-display font-black tracking-tight leading-tight mb-3">
-                        Publicidad Visual & <br>
-                        <span class="text-gradient-cmyk">Diseño de Impacto</span>
-                    </h1>
-
-                    <p class="text-xs sm:text-sm text-gray-400 mb-6 leading-relaxed">
-                        Creamos anuncios luminosos, rotulación de vehículos, lona publicitaria, branding e instalaciones de gran altura.
-                    </p>
-
-                    <div class="flex flex-wrap items-center gap-3">
-                        <a href="https://wa.me/5216641234567?text=Hola,%20deseo%20cotizar" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-2 shadow-lg shadow-green-500/20">
-                            <i class="fab fa-whatsapp text-lg"></i> Cotizar Ahora
-                        </a>
-                        <a href="#portafolio" class="bg-cmykBlack hover:bg-gray-900 border border-gray-700 text-white px-5 py-2.5 rounded-xl font-bold text-xs transition-all flex items-center gap-2">
-                            Ver Galería <i class="fas fa-arrow-down text-cmykCyan"></i>
-                        </a>
-                    </div>
-                </section>
-
-                <!-- SECCIÓN SERVICIOS -->
-                <section id="servicios">
-                    <div class="mb-4">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-cmykCyan block mb-0.5">Lo que hacemos</span>
-                        <h2 class="text-xl sm:text-2xl font-display font-black text-white">Servicios de Diseño & Publicidad</h2>
-                    </div>
-
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <div class="bg-darkCard p-5 rounded-2xl border border-gray-800 hover:border-cmykCyan transition-all group">
-                            <div class="w-10 h-10 rounded-xl bg-cmykCyan/10 text-cmykCyan flex items-center justify-center text-lg mb-3">
-                                <i class="fas fa-pen-nib"></i>
-                            </div>
-                            <h3 class="text-sm font-bold text-white mb-1">Diseño Gráfico & Logos</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Creación de vectores, marcas, flyers, menús e imagen corporativa.</p>
-                        </div>
-
-                        <div class="bg-darkCard p-5 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all group">
-                            <div class="w-10 h-10 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-lg mb-3">
-                                <i class="fas fa-print"></i>
-                            </div>
-                            <h3 class="text-sm font-bold text-white mb-1">Gran Formato & Lonas</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Impresión en lona vinílica, microperforado, vinil mate y brillante.</p>
-                        </div>
-
-                        <div class="bg-darkCard p-5 rounded-2xl border border-gray-800 hover:border-cmykYellow transition-all group">
-                            <div class="w-10 h-10 rounded-xl bg-cmykYellow/10 text-cmykYellow flex items-center justify-center text-lg mb-3">
-                                <i class="fas fa-store"></i>
-                            </div>
-                            <h3 class="text-sm font-bold text-white mb-1">Letreros Luminosos LED</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Cajas de luz, letras 3D formadas en acrílico o aluminio y montajes.</p>
-                        </div>
-
-                        <div class="bg-darkCard p-5 rounded-2xl border border-gray-800 hover:border-cmykMagenta transition-all group">
-                            <div class="w-10 h-10 rounded-xl bg-cmykMagenta/10 text-cmykMagenta flex items-center justify-center text-lg mb-3">
-                                <i class="fas fa-truck-monster"></i>
-                            </div>
-                            <h3 class="text-sm font-bold text-white mb-1">Rotulación Vehicular</h3>
-                            <p class="text-xs text-gray-400 leading-relaxed">Wrap completo o parcial para carros de servicio y flotillas comerciales.</p>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- GALERÍA DE TRABAJOS Y DISEÑOS CON FILTROS -->
-                <section id="portafolio">
-                    <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-5 gap-3">
-                        <div>
-                            <span class="text-[10px] font-extrabold uppercase tracking-widest text-cmykMagenta block mb-0.5">Portafolio</span>
-                            <h2 class="text-xl sm:text-2xl font-display font-black text-white">Galería de Proyectos</h2>
-                        </div>
-                        <div class="flex flex-wrap gap-1.5 overflow-x-auto no-scrollbar">
-                            <button class="filter-btn active-filter px-3 py-1 rounded-full text-xs font-bold bg-cmykCyan text-black" data-filter="all">Todos</button>
-                            <button class="filter-btn px-3 py-1 rounded-full text-xs font-bold bg-darkCard text-gray-300 hover:text-white" data-filter="instalacion">Instalaciones</button>
-                            <button class="filter-btn px-3 py-1 rounded-full text-xs font-bold bg-darkCard text-gray-300 hover:text-white" data-filter="diseno">Diseño</button>
-                            <button class="filter-btn px-3 py-1 rounded-full text-xs font-bold bg-darkCard text-gray-300 hover:text-white" data-filter="vehicular">Vehicular</button>
-                        </div>
-                    </div>
-
-                    <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        <!-- Item 1 -->
-                        <div class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800" 
-                             onclick="openModal('https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80', 'Caja de Luz LED Exterior', 'Instalación real de anuncio luminoso con estructura de alta durabilidad.')">
-                            <div class="h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=800&q=80" alt="Anuncio Luminoso" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Anuncio+Luminoso'">
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <div class="absolute bottom-0 p-3">
-                                <span class="text-[9px] font-bold text-cmykCyan uppercase bg-cmykCyan/20 px-2 py-0.5 rounded">Instalación Real</span>
-                                <h4 class="text-xs font-bold text-white mt-1">Caja de Luz LED Exterior</h4>
-                            </div>
-                        </div>
-
-                        <!-- Item 2 -->
-                        <div class="gallery-item category-diseno cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                             onclick="openModal('https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80', 'Branding Corporativo', 'Diseño vectorial e identidad de marca completa.')">
-                            <div class="h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80" alt="Diseño de Logo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/EC008C?text=Dise%C3%B1o+Identidad+Marca'">
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <div class="absolute bottom-0 p-3">
-                                <span class="text-[9px] font-bold text-cmykMagenta uppercase bg-cmykMagenta/20 px-2 py-0.5 rounded">Diseño Gráfico</span>
-                                <h4 class="text-xs font-bold text-white mt-1">Identidad Corporativa Completa</h4>
-                            </div>
-                        </div>
-
-                        <!-- Item 3 -->
-                        <div class="gallery-item category-vehicular cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                             onclick="openModal('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80', 'Rotulación Vehicular Comercial', 'Vinil impreso laminado para resistencia a la intemperie.')">
-                            <div class="h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80" alt="Rotulación Vehicular" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/FFF200?text=Rotulacion+Vehicular'">
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <div class="absolute bottom-0 p-3">
-                                <span class="text-[9px] font-bold text-cmykYellow uppercase bg-cmykYellow/20 text-cmykYellow px-2 py-0.5 rounded">Rotulación</span>
-                                <h4 class="text-xs font-bold text-white mt-1">Rotulado Vehicular Comercial</h4>
-                            </div>
-                        </div>
-
-                        <!-- Item 4 -->
-                        <div class="gallery-item category-instalacion cursor-pointer group relative overflow-hidden rounded-2xl bg-darkCard border border-gray-800"
-                             onclick="openModal('https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=1200&q=80', 'Montaje Lona Gran Formato', 'Instalación técnica en estructura metálica.')">
-                            <div class="h-48 overflow-hidden">
-                                <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=800&q=80" alt="Montaje Lona" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" onerror="this.src='https://placehold.co/800x600/111/00AEEF?text=Montaje+Lona'">
-                            </div>
-                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
-                            <div class="absolute bottom-0 p-3">
-                                <span class="text-[9px] font-bold text-cmykCyan uppercase bg-cmykCyan/20 px-2 py-0.5 rounded">Instalación Real</span>
-                                <h4 class="text-xs font-bold text-white mt-1">Bastidor Perimetral Gigante</h4>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- FORMULARIO DE COTIZACIÓN RÁPIDA -->
-                <section id="cotizador" class="bg-darkCard rounded-3xl p-6 border border-gray-800">
-                    <div class="mb-4">
-                        <span class="text-[10px] font-extrabold uppercase tracking-widest text-green-400 block mb-0.5">Atención Inmediata</span>
-                        <h2 class="text-xl font-display font-black text-white">Cotizador Rápido por WhatsApp</h2>
-                        <p class="text-xs text-gray-400 mt-1">Llena los datos básicos y generaremos el mensaje listo para enviar.</p>
-                    </div>
-
-                    <form id="waForm" class="space-y-3" onsubmit="sendWhatsApp(event)">
-                        <div>
-                            <label class="block text-[11px] font-bold text-gray-300 mb-1">Servicio Requerido</label>
-                            <select id="waService" class="w-full bg-cmykBlack border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykCyan">
-                                <option value="Letrero Luminoso / Caja de Luz">Letrero Luminoso / Caja de Luz</option>
-                                <option value="Impresión en Gran Formato (Lona/Vinil)">Impresión Gran Formato (Lona / Vinil)</option>
-                                <option value="Rotulación Vehicular">Rotulación Vehicular</option>
-                                <option value="Diseño de Logotipo o Branding">Diseño de Logotipo / Branding</option>
-                                <option value="Otro Trabajo Especial">Otro Servicio Especial</option>
-                            </select>
-                        </div>
-
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <div>
-                                <label class="block text-[11px] font-bold text-gray-300 mb-1">Medidas Aproximadas (Ej: 2m x 1m)</label>
-                                <input type="text" id="waSize" placeholder="Opcional" class="w-full bg-cmykBlack border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykMagenta">
-                            </div>
-                            <div>
-                                <label class="block text-[11px] font-bold text-gray-300 mb-1">Tu Nombre</label>
-                                <input type="text" id="waName" required placeholder="Nombre o Negocio" class="w-full bg-cmykBlack border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykYellow">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-[11px] font-bold text-gray-300 mb-1">Detalles del Proyecto</label>
-                            <textarea id="waDetails" rows="2" placeholder="Describenos qué necesitas..." class="w-full bg-cmykBlack border border-gray-800 rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cmykCyan"></textarea>
-                        </div>
-
-                        <button type="submit" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 rounded-xl text-xs flex items-center justify-center gap-2 transition-all shadow-lg shadow-green-500/20">
-                            <i class="fab fa-whatsapp text-base"></i> Enviar Cotización por WhatsApp
-                        </button>
-                    </form>
-                </section>
-
-            </main>
-
-
-            <!-- ======================================================== -->
-            <!-- COLUMNA DERECHA: TIKTOK & SHORTS / REELS FEED (3 COLS EN LG) -->
-            <!-- ======================================================== -->
-            <aside class="lg:col-span-3 sticky top-24 space-y-6 order-3">
-                
-                <!-- TIKTOK WALL -->
-                <div class="bg-darkCard rounded-2xl p-4 border border-gray-800 shadow-xl">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800 mb-3">
+                <!-- CONTENIDO RED SOCIAL: TIKTOK -->
+                <div id="feed-tiktok" class="social-feed-content space-y-4 hidden">
+                    <div class="flex items-center justify-between bg-darkBg/60 p-3 rounded-2xl border border-borderCol">
                         <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-black border border-gray-700 flex items-center justify-center text-cmykCyan">
-                                <i class="fab fa-tiktok text-sm"></i>
-                            </div>
+                            <div class="w-8 h-8 rounded-full bg-black border border-slate-700 flex items-center justify-center text-white text-xs font-bold"><i class="fa-brands fa-tiktok"></i></div>
                             <div>
-                                <h3 class="text-xs font-bold text-white">TikTok Feed</h3>
-                                <p class="text-[10px] text-gray-400">@tj_diseno_oficial</p>
+                                <h4 class="text-xs font-bold text-white">@tjdiseno</h4>
+                                <span class="text-[10px] text-slate-400">15.2K Seguidores</span>
                             </div>
                         </div>
-                        <span class="bg-cmykYellow/20 text-cmykYellow text-[9px] font-extrabold px-2 py-0.5 rounded">VIRAL</span>
+                        <a href="https://tiktok.com" target="_blank" class="bg-black border border-slate-700 hover:bg-slate-900 text-white px-3 py-1.5 rounded-lg text-xs font-bold transition">Seguir</a>
                     </div>
 
-                    <!-- Embed TikTok Iframe Oficial -->
-                    <!-- NOTA: Puedes cambiar la URL del embed de TikTok por la de cualquier video tuyo -->
-                    <div class="w-full rounded-xl overflow-hidden bg-black border border-gray-900 flex justify-center">
-                        <iframe class="w-full h-[380px] rounded-xl" 
-                                src="https://www.tiktok.com/embed/v2/7100000000000000000" 
-                                frameborder="0" 
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                                allowfullscreen>
-                        </iframe>
-                    </div>
-
-                    <a href="https://tiktok.com" target="_blank" rel="noopener" class="w-full mt-3 bg-cmykYellow/10 text-cmykYellow hover:bg-cmykYellow hover:text-black py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all">
-                        <i class="fab fa-tiktok text-sm"></i> Ver Cuenta de TikTok
-                    </a>
-                </div>
-
-                <!-- INSTAGRAM REELS & SHORTS PREVIEW -->
-                <div class="bg-darkCard rounded-2xl p-4 border border-gray-800 shadow-xl">
-                    <div class="flex items-center justify-between pb-3 border-b border-gray-800 mb-3">
-                        <div class="flex items-center space-x-2">
-                            <div class="w-8 h-8 rounded-full bg-red-600 flex items-center justify-center text-white">
-                                <i class="fab fa-youtube text-sm"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-bold text-white">Reels & Videos</h3>
-                                <p class="text-[10px] text-gray-400">Proceso de Trabajo</p>
+                    <div class="bg-darkBg border border-borderCol rounded-2xl overflow-hidden">
+                        <div class="p-3 flex items-center justify-between text-xs border-b border-borderCol/50">
+                            <span class="font-bold text-slate-300">TikTok Video</span>
+                            <span class="text-[10px] text-slate-400">Hace 2 días</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=500&q=80" alt="TikTok Post" class="w-full h-40 object-cover">
+                        <div class="p-3 space-y-2">
+                            <p class="text-xs text-slate-300">Así instalamos este vinil decorativo en oficina comercial. ¡Resultado increíble! 🏢✨</p>
+                            <div class="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-borderCol/40">
+                                <button onclick="likePost(this)" class="flex items-center space-x-1 text-slate-300 hover:text-red-500 transition">
+                                    <i class="fa-solid fa-heart text-red-500"></i> <span class="like-count">340</span>
+                                </button>
+                                <a href="https://tiktok.com" target="_blank" class="text-cyan-400 hover:underline font-bold text-[11px]">Ver en TikTok <i class="fa-solid fa-arrow-up-right-from-square ml-0.5"></i></a>
                             </div>
                         </div>
-                        <i class="fas fa-play text-cmykCyan text-xs animate-bounce"></i>
-                    </div>
-
-                    <!-- Video Preview Card -->
-                    <div class="relative rounded-xl overflow-hidden group cursor-pointer border border-gray-800"
-                         onclick="openModal('https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=800&q=80', 'Proceso de Impresión Gran Formato', 'Video demostrativo de impresión en alta definición.')">
-                        <img src="https://images.unsplash.com/photo-1542744094-3a3121699479?auto=format&fit=crop&w=600&q=80" class="w-full h-44 object-cover" onerror="this.src='https://placehold.co/600x400/111/FFF200?text=Proceso+de+Impresion'">
-                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center group-hover:bg-black/20 transition-all">
-                            <div class="w-10 h-10 rounded-full bg-cmykMagenta text-white flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                                <i class="fas fa-play ml-0.5 text-xs"></i>
-                            </div>
-                        </div>
-                        <div class="absolute bottom-0 inset-x-0 p-2.5 bg-gradient-to-t from-black text-[11px] font-bold text-white">
-                            Demostración de Impresión Plotter ⚡
-                        </div>
-                    </div>
-
-                    <!-- Botones Rápidos a Redes -->
-                    <div class="grid grid-cols-2 gap-2 mt-4">
-                        <a href="https://instagram.com" target="_blank" class="bg-cmykBlack hover:bg-gray-900 border border-gray-800 py-1.5 rounded-lg text-[10px] font-bold text-gray-300 flex items-center justify-center gap-1">
-                            <i class="fab fa-instagram text-cmykMagenta"></i> Reels
-                        </a>
-                        <a href="https://youtube.com" target="_blank" class="bg-cmykBlack hover:bg-gray-900 border border-gray-800 py-1.5 rounded-lg text-[10px] font-bold text-gray-300 flex items-center justify-center gap-1">
-                            <i class="fab fa-youtube text-red-500"></i> Shorts
-                        </a>
                     </div>
                 </div>
 
-            </aside>
-
-        </div>
-    </div>
-
-    <!-- 4. FOOTER -->
-    <footer id="contacto" class="bg-black pt-16 pb-10 border-t border-gray-800 mt-16">
-        <div class="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-                <div>
-                    <div class="flex items-center space-x-2 mb-3">
-                        <span class="font-display font-black text-lg text-white">TJ DISEÑO & PUBLICIDAD</span>
-                    </div>
-                    <p class="text-gray-400 text-xs leading-relaxed">
-                        Publicidad visual de alta calidad: diseño gráfico, impresión en gran formato e instalaciones comerciales.
-                    </p>
-                </div>
-
-                <div>
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykCyan pl-2">Servicios</h4>
-                    <ul class="space-y-1.5 text-xs text-gray-400">
-                        <li>Gran Formato & Lonas</li>
-                        <li>Anuncios Luminosos LED</li>
-                        <li>Rotulación Vehicular</li>
-                        <li>Diseño de Logotipos</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykMagenta pl-2">Contacto Directo</h4>
-                    <ul class="space-y-2 text-xs text-gray-400">
-                        <li><i class="fas fa-phone-alt text-cmykMagenta mr-2"></i>+52 (664) 123-4567</li>
-                        <li><i class="fas fa-envelope text-cmykMagenta mr-2"></i>contacto@tjdiseno.com</li>
-                        <li><i class="fas fa-map-marker-alt text-cmykMagenta mr-2"></i>Servicio e Instalaciones Locales</li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="text-xs font-bold text-white uppercase tracking-wider mb-3 border-l-2 border-cmykYellow pl-2">Redes Oficiales</h4>
-                    <div class="flex space-x-2">
-                        <a href="https://facebook.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykCyan transition-colors"><i class="fab fa-facebook-f text-xs"></i></a>
-                        <a href="https://instagram.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykMagenta transition-colors"><i class="fab fa-instagram text-xs"></i></a>
-                        <a href="https://tiktok.com" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-cmykYellow transition-colors"><i class="fab fa-tiktok text-xs"></i></a>
-                        <a href="https://wa.me/5216641234567" target="_blank" class="w-8 h-8 rounded-lg bg-gray-900 border border-gray-800 flex items-center justify-center text-gray-400 hover:text-green-400 transition-colors"><i class="fab fa-whatsapp text-xs"></i></a>
-                    </div>
-                </div>
             </div>
 
-            <div class="border-t border-gray-900 pt-6 text-center text-[11px] text-gray-500">
-                <p>&copy; 2026 TJ Diseño & Publicidad. Todos los derechos reservados.</p>
-            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-cardBg border-t border-borderCol mt-16 py-8 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 space-y-2">
+            <p class="font-bold text-white text-sm">TJ Diseño y Publicidad © 2026</p>
+            <p>Todos los derechos reservados. Impresión digital, diseño y publicidad profesional.</p>
         </div>
     </footer>
 
-    <!-- BOTÓN FLOTANTE WHATSAPP -->
-    <a href="https://wa.me/5216641234567?text=Hola,%20quisiera%20cotizar%20un%20trabajo" target="_blank" class="fixed bottom-5 right-5 z-50 bg-green-500 text-white w-12 h-12 rounded-full flex items-center justify-center text-2xl shadow-2xl wa-pulse">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <!-- MODAL LIGHTBOX DE GALERÍA -->
-    <div id="imageModal" class="fixed inset-0 z-50 hidden bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
-        <div class="relative max-w-3xl w-full bg-cmykBlack rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
-            <button onclick="closeModal()" class="absolute top-3 right-3 z-10 bg-black/70 hover:bg-cmykMagenta text-white w-8 h-8 rounded-full flex items-center justify-center">
-                <i class="fas fa-times text-sm"></i>
+    <!-- MODAL LIGHTBOX PARA VER IMÁGENES EN GRANDE -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 hidden items-center justify-center p-4 cursor-pointer" onclick="closeLightbox()">
+        <div class="relative max-w-3xl w-full bg-cardBg border border-borderCol rounded-2xl overflow-hidden p-2" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-darkBg/80 text-white font-bold flex items-center justify-center hover:bg-red-600 transition">
+                <i class="fa-solid fa-xmark"></i>
             </button>
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-3/5 bg-black flex items-center justify-center min-h-[250px]">
-                    <img id="modalImg" src="" alt="Trabajo" class="max-h-[70vh] w-auto object-contain">
-                </div>
-                <div class="md:w-2/5 p-5 flex flex-col justify-between">
-                    <div>
-                        <span class="text-[10px] font-bold text-cmykCyan uppercase tracking-widest mb-1 block">Proyecto</span>
-                        <h3 id="modalTitle" class="text-base font-bold text-white mb-2"></h3>
-                        <p id="modalDesc" class="text-xs text-gray-400 leading-relaxed mb-4"></p>
-                    </div>
-                    <a id="modalWaBtn" href="#" target="_blank" class="w-full bg-green-500 hover:bg-green-600 text-white py-2.5 rounded-xl font-bold text-xs flex items-center justify-center gap-2">
-                        <i class="fab fa-whatsapp text-base"></i> Cotizar este Trabajo
-                    </a>
-                </div>
+            <img id="lightbox-img" src="" alt="Imagen Ampliada" class="w-full max-h-[75vh] object-contain rounded-xl">
+            <div class="p-4 text-center space-y-2">
+                <p class="text-sm font-bold text-white">¿Te gusta este trabajo para tu negocio?</p>
+                <a id="lightbox-whatsapp" href="#" target="_blank" class="inline-flex items-center space-x-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition shadow-lg">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Cotizar este trabajo por WhatsApp</span>
+                </a>
             </div>
         </div>
     </div>
 
-    <!-- JAVASCRIPT PRINCIPAL Y COTIZADOR WHATSAPP -->
+    <!-- SCRIPTS DE INTERACTIVIDAD -->
     <script>
-        // Formulario de Cotización WhatsApp Automática
-        function sendWhatsApp(e) {
-            e.preventDefault();
-            const service = document.getElementById('waService').value;
-            const size = document.getElementById('waSize').value || 'No especificado';
-            const name = document.getElementById('waName').value;
-            const details = document.getElementById('waDetails').value || 'Sin detalles adicionales';
+        // Filtro de trabajos
+        function filterWorks(category) {
+            const cards = document.querySelectorAll('.work-card');
+            const buttons = document.querySelectorAll('.filter-btn');
 
-            const message = `Hola TJ Diseño & Publicidad, me llamo *${name}* y me interesa cotizar:\n\n📌 *Servicio:* ${service}\n📐 *Medidas:* ${size}\n📝 *Detalles:* ${details}`;
-            const url = `https://wa.me/5216641234567?text=${encodeURIComponent(message)}`;
-            window.open(url, '_blank');
-        }
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-cmykCyan', 'text-darkBg');
+                btn.classList.add('bg-slate-800', 'text-slate-300');
+            });
+            event.target.classList.remove('bg-slate-800', 'text-slate-300');
+            event.target.classList.add('bg-cmykCyan', 'text-darkBg');
 
-        // Carrusel Banner Superior
-        let currentSlide = 0;
-        const slides = document.querySelectorAll('.carousel-slide');
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.toggle('opacity-100', i === index);
-                slide.classList.toggle('opacity-0', i !== index);
+            cards.forEach(card => {
+                if (category === 'all' || card.classList.contains(category)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
             });
         }
-        document.getElementById('nextSlide')?.addEventListener('click', () => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        });
-        document.getElementById('prevSlide')?.addEventListener('click', () => {
-            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-            showSlide(currentSlide);
-        });
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % slides.length;
-            showSlide(currentSlide);
-        }, 5000);
 
-        // Menú Móvil Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
-
-        // Filtro de la Galería
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        const galleryItems = document.querySelectorAll('.gallery-item');
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                filterBtns.forEach(b => {
-                    b.classList.remove('bg-cmykCyan', 'text-black');
-                    b.classList.add('bg-darkCard', 'text-gray-300');
-                });
-                btn.classList.remove('bg-darkCard', 'text-gray-300');
-                btn.classList.add('bg-cmykCyan', 'text-black');
-                const filter = btn.getAttribute('data-filter');
-                galleryItems.forEach(item => {
-                    item.style.display = (filter === 'all' || item.classList.contains(`category-${filter}`)) ? 'block' : 'none';
-                });
-            });
-        });
-
-        // Lightbox Modal
-        const modal = document.getElementById('imageModal');
-        function openModal(imgSrc, title, desc) {
-            document.getElementById('modalImg').src = imgSrc;
-            document.getElementById('modalTitle').textContent = title;
-            document.getElementById('modalDesc').textContent = desc;
-            document.getElementById('modalWaBtn').href = `https://wa.me/5216641234567?text=${encodeURIComponent(`Hola, me interesa cotizar el trabajo de: ${title}`)}`;
-            modal.classList.remove('hidden');
+        // Sistema de Me gusta interactivo
+        function likePost(button) {
+            const countSpan = button.querySelector('.like-count');
+            let count = parseInt(countSpan.textContent);
+            if (!button.classList.contains('liked')) {
+                count++;
+                button.classList.add('liked', 'text-red-500');
+            } else {
+                count--;
+                button.classList.remove('liked', 'text-red-500');
+            }
+            countSpan.textContent = count;
         }
-        function closeModal() {
-            modal.classList.add('hidden');
+
+        // Cambio de pestañas en Redes Sociales (Derecha)
+        function switchSocial(platform) {
+            const feeds = document.querySelectorAll('.social-feed-content');
+            const tabs = document.querySelectorAll('.social-tab');
+
+            feeds.forEach(f => f.classList.add('hidden'));
+            tabs.forEach(t => {
+                t.classList.remove('bg-blue-600', 'bg-gradient-to-r', 'from-purple-600', 'to-pink-600', 'bg-black', 'text-white');
+                t.classList.add('bg-slate-800', 'text-slate-300');
+            });
+
+            if (platform === 'facebook') {
+                document.getElementById('feed-facebook').classList.remove('hidden');
+                const tab = document.getElementById('tab-fb');
+                tab.classList.remove('bg-slate-800', 'text-slate-300');
+                tab.classList.add('bg-blue-600', 'text-white');
+            } else if (platform === 'instagram') {
+                document.getElementById('feed-instagram').classList.remove('hidden');
+                const tab = document.getElementById('tab-ig');
+                tab.classList.remove('bg-slate-800', 'text-slate-300');
+                tab.classList.add('bg-gradient-to-r', 'from-purple-600', 'to-pink-600', 'text-white');
+            } else if (platform === 'tiktok') {
+                document.getElementById('feed-tiktok').classList.remove('hidden');
+                const tab = document.getElementById('tab-tt');
+                tab.classList.remove('bg-slate-800', 'text-slate-300');
+                tab.classList.add('bg-black', 'border', 'border-slate-700', 'text-white');
+            }
+        }
+
+        // Lightbox de imágenes
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxWhatsApp = document.getElementById('lightbox-whatsapp');
+
+            lightboxImg.src = img.src;
+            lightboxWhatsApp.href = `https://wa.me/526670000000?text=Hola,%20me%20interesa%20un%20trabajo%20exactamente%20como%20el%20de%20esta%20imagen:%20${encodeURIComponent(img.src)}`;
+            
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('flex');
+            lightbox.classList.add('hidden');
+        }
+
+        // Cotizador WhatsApp
+        function sendQuoteWhatsApp() {
+            const name = document.getElementById('clientName').value.trim();
+            const service = document.getElementById('serviceType').value;
+            const details = document.getElementById('clientDetails').value.trim();
+
+            let message = `¡Hola! Me gustaría solicitar una cotización.%0A%0A*Nombre:* ${name || 'Cliente'}%0A*Servicio:* ${service}%0A*Detalles:* ${details || 'Sin detalles adicionales'}`;
+            
+            window.open(`https://wa.me/526670000000?text=${message}`, '_blank');
         }
     </script>
 </body>
 </html>
-```
